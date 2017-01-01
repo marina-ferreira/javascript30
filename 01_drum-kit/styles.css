@@ -12,6 +12,10 @@
 }
 
 .key {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 70px;
   height: 70px;
   background: #000;
@@ -19,11 +23,17 @@
   margin-right: 15px;
   color: #fff;
   font-size: 27px;
-  line-height: 70px;
-  text-align: center;
-  vertical-align: middle;
 }
 
 .key:last-child {
   margin-right: 0;
+}
+
+.key.active {
+  background: #f00;
+}
+
+.key span {
+  font-size: 14px;
+  color: #ff0;
 }
