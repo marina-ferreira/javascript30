@@ -1,5 +1,5 @@
 document.addEventListener('keydown', function(event) {
-  var key = document.querySelector("[data-key='" + event.keyCode + "']");
+  var key = toggleActive();
 
   if (key) {
     key.classList.add('active');
@@ -10,8 +10,13 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-document.addEventListener('keyup', function() {
+document.addEventListener('keyup', function(event) {
+  toggleActive();
+});
+
+function toggleActive() {
   var key = document.querySelector("[data-key='" + event.keyCode + "']");
 
-  key && key.classList.remove('active');
-});
+  key && key.classList.toggle('active');
+  return key;
+}
