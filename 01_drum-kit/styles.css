@@ -1,0 +1,29 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: #cecece;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keys {
+  display: flex;
+}
+
+.key {
+  width: 70px;
+  height: 70px;
+  background: #000;
+  opacity: .6;
+  margin-right: 15px;
+  color: #fff;
+  font-size: 27px;
+  line-height: 70px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.key:last-child {
+  margin-right: 0;
+}
