@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -24,7 +28,8 @@
   margin-right: 15px;
   color: #fff;
   font-size: 27px;
-  border: 3px solid #000
+  border: 3px solid #000;
+  transition: background .07s ease-in-out;
 }
 
 .key:last-child {
@@ -33,6 +38,7 @@
 
 .key.active {
   background: rgba(255, 0, 0, .5);
+  transition: background .07s ease-in-out;
 }
 
 .key span {
