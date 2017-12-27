@@ -1,3 +1,9 @@
+:root {
+  --spacing: 20px;
+  --blur: 0;
+  --color: #FFC107;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,19 +11,19 @@
 
 body {
   height: 100vh;
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  text-align: center;
   background: linear-gradient(to right, #155799, #159957);
 }
 
 .title {
-  margin-bottom: 70px;
+  margin: 160px auto 70px;
   color: #fff;
   font-size: 48px;
-  -webkit-text-stroke: 1px #000;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+}
+
+.title span {
+  color: var(--color);
 }
 
 .controls {
@@ -26,6 +32,8 @@ body {
 
 .controls label {
   margin-right: 10px;
+  color: #fff;
+  font-size: 30px;
 }
 
 .controls input {
@@ -37,5 +45,7 @@ body {
 }
 
 img {
-  border: 20px solid #000;
+  padding: var(--spacing);
+  background: var(--color);
+  filter: blur(var(--blur));
 }
