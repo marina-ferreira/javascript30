@@ -1,19 +1,20 @@
-window.onload = function() {
-  var hours = document.querySelector('.hours');
-  var minutes = document.querySelector('.minutes');
-  var seconds = document.querySelector('.seconds');
-  var hoursAngle = 0.00416667;
-  var minutesAngle = 0.1;
-  var secondsAngle = 6;
+function setClock() {
+  var hoursHand = document.querySelector('.hours');
+  var minutesHand = document.querySelector('.minutes');
+  var secondsHand = document.querySelector('.seconds');
 
-  setInterval(function() {
-    hours.style.transform = `rotate(${hoursAngle}deg) translate(0%, -50%)`;
-    hoursAngle += 0.00416667;
+  var now = new Date();
+  var seconds = now.getSeconds();
+  var minutes = now.getMinutes();
+  var hours = now.getHours();
 
-    minutes.style.transform = `rotate(${minutesAngle}deg) translate(0%, -50%)`;
-    minutesAngle += 0.1;
+  var hoursAngle = (360 * hours) / 12;
+  var minutesAngle = (360 * minutes) / 60;
+  var secondsAngle = (360 * seconds) / 60;
 
-    seconds.style.transform = `rotate(${secondsAngle}deg) translate(0%, -50%)`;
-    secondsAngle += 6;
-  }, 1000);
+  hoursHand.style.transform = `rotate(${hoursAngle}deg) translate(0, -50%)`;
+  minutesHand.style.transform = `rotate(${minutesAngle}deg) translate(0, -50%)`;
+  secondsHand.style.transform = `rotate(${secondsAngle}deg) translate(0, -50%)`;
 }
+
+setInterval(setClock, 1000);

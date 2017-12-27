@@ -29,8 +29,7 @@ body {
 .hand {
   position: absolute;
   align-self: center;
-  transform: translate(0%, -50%);
-  transition: transform linear 1s;
+  transform: translate(0, -50%);
 }
 
 .hours {
