@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(to right, #155799, #159957);
+}
+
+.title {
+  margin-bottom: 70px;
+  color: #fff;
+  font-size: 48px;
+  -webkit-text-stroke: 1px #000;
+}
+
+.controls {
+  margin-bottom: 40px;
+}
+
+.controls label {
+  margin-right: 10px;
+}
+
+.controls input {
+  margin-right: 30px;
+}
+
+.controls input:last-child {
+  margin-right: 0;
+}
+
+img {
+  border: 20px solid #000;
+}
