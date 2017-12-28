@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: 'Audiowide', cursive;
+  color: #fff;
+}
+
+.panel {
+  width: 20vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: width 1s cubic-bezier(.22, -0.52, .41, 2.01);
+  text-shadow: 1px 1px 1px #000, 2px 2px 1px #000;
+}
+
+.panel:hover {
+  width: 50vw;
+}
+
+.panel .highlight {
+  font-size: 36px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.panel .info {
+  margin-top: auto;
+  visibility: hidden;
+  transition: all 1.2s;
+}
+
+.panel .info .item {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.panel .info .item a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  display: block;
+}
+
+.panel .info .line {
+  display: block;
+}
+
+.panel .info .line.second {
+  margin-left: 10px;
+}
+
+.panel.one {
+  background: url('http://lorempixel.com/600/1000/nightlife/');
+}
+.panel.two {
+  background: url('http://lorempixel.com/600/1000/abstract/');
+}
+.panel.three {
+  background: url('http://lorempixel.com/600/1000/animals/');
+}
+.panel.four {
+  background: url('http://lorempixel.com/600/1000/people/');
+}
+.panel.five {
+  background: url('http://lorempixel.com/600/1000/nature/');
+}
