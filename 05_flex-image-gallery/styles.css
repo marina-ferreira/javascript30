@@ -7,9 +7,10 @@
 }
 
 body {
-  display: flex;
-  font-family: 'Audiowide', cursive;
   color: #fff;
+  font-family: 'Audiowide', cursive;
+  display: flex;
+  overflow: hidden;
 }
 
 .panel {
@@ -18,7 +19,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  transition: width 1s cubic-bezier(.22, -0.52, .41, 2.01);
+  transition: width 1.2s cubic-bezier(.22, -0.52, .41, 2.01);
   text-shadow: 1px 1px 1px #000, 2px 2px 1px #000;
 }
 
@@ -33,45 +34,54 @@ body {
   transform: translateY(-50%);
 }
 
-.panel .info {
-  margin-top: auto;
+.panel .title {
+  margin-top: 0;
   visibility: hidden;
+  opacity: 1;
   transition: all 1.2s;
 }
 
-.panel .info .item {
+.panel .details {
+  margin-top: auto;
+  margin-bottom: -250px;
+  visibility: hidden;
+  opacity: 1;
+  transition: all 1.2s;
+}
+
+.panel .details .item {
   font-size: 14px;
   display: block;
   margin-bottom: 15px;
 }
 
-.panel .info .item a {
+.panel .details .item a {
   text-decoration: none;
   color: #fff;
   font-size: 14px;
   display: block;
 }
 
-.panel .info .line {
+.panel .details .line {
   display: block;
 }
 
-.panel .info .line.second {
+.panel .details .line.second {
   margin-left: 10px;
 }
 
 .panel.one {
-  background: url('http://lorempixel.com/600/1000/nightlife/');
+  background: #463785 url('http://lorempixel.com/600/1000/nightlife/');
 }
 .panel.two {
-  background: url('http://lorempixel.com/600/1000/abstract/');
+  background: #124559 url('http://lorempixel.com/600/1000/abstract/');
 }
 .panel.three {
-  background: url('http://lorempixel.com/600/1000/animals/');
+  background: #4A1942 url('http://lorempixel.com/600/1000/animals/');
 }
 .panel.four {
-  background: url('http://lorempixel.com/600/1000/people/');
+  background: #598392 url('http://lorempixel.com/600/1000/people/');
 }
 .panel.five {
-  background: url('http://lorempixel.com/600/1000/nature/');
+  background: #893168 url('http://lorempixel.com/600/1000/nature/');
 }

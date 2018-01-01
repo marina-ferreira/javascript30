@@ -5,19 +5,28 @@ window.onload = () => {
   panels.forEach((panel) => panel.addEventListener('mouseleave', slideDown));
 }
 
-
 function slideUp(e) {
-  var info = this.lastElementChild;
+  var panelTitle = this.querySelector('.title');
+  var details = this.querySelector('.details');
 
-  if (info) {
-    info.style = 'transform: translateY(-200px); visibility: visible';
+  if (panelTitle) {
+    panelTitle.style = 'transform: translateY(150px); visibility: visible';
+  }
+
+  if (details) {
+    details.style = 'margin-bottom: 60px; visibility: visible';
   }
 }
 
 function slideDown(e) {
-  var info = this.lastElementChild;
+  var panelTitle = this.querySelector('.title');
+  var details = this.querySelector('.details');
 
-  if (info) {
-    info.style = 'transform: translateY(200px); visibility: hidden';
+  if (panelTitle) {
+    panelTitle.style = 'transform: translateY(-150px); visibility: hidden; opacity: 0';
+  }
+
+  if (details) {
+    details.style = 'margin-bottom: -250px; visibility: hidden; opacity: 0';
   }
 }
