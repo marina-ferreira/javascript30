@@ -10,36 +10,22 @@
 body {
   color: #fff;
   font-family: 'Audiowide', cursive;
-  display: flex;
   overflow: hidden;
 }
 
 .panel {
-  width: 20vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   transition: width 1.2s cubic-bezier(.22, -0.52, .41, 2.01);
   text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
 }
 
-.panel:hover {
-  width: 50vw;
-}
-
 .panel .highlight {
   font-size: 36px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   text-shadow: 1px 1px 1px #000, 2px 2px 1px #000;
 }
 
 .panel .title {
   font-family: 'Play', sans-serif;
   font-size: 20px;
-  margin-top: 0;
   visibility: hidden;
   opacity: 1;
   transition: all 1.2s;
@@ -48,30 +34,14 @@ body {
 .panel .details {
   font-family: 'Play', sans-serif;
   font-size: 16px;
-  margin-top: auto;
-  margin-bottom: -250px;
   visibility: hidden;
   opacity: 1;
   transition: all 1.2s;
 }
 
-.panel .details .item {
-  display: block;
-  margin-bottom: 15px;
-}
-
 .panel .details .item a {
   color: #fff;
   text-decoration: none;
-  display: block;
-}
-
-.panel .details .line {
-  display: block;
-}
-
-.panel .details .line.second {
-  margin-left: 10px;
 }
 
 .panel.one {
