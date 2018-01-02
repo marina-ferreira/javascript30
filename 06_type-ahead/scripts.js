@@ -10,10 +10,10 @@ function search() {
   let resultContainer = document.querySelector('.search-result');
   let oldResult = document.querySelector('.result-list')
 
+  if (oldResult) { oldResult.parentNode.removeChild(oldResult); }
+
   if (!searchValue) return;
   if (!window.citiesInfo) return;
-
-  if (oldResult) { oldResult.parentNode.removeChild(oldResult); }
 
   let resultList = document.createElement('ul');
   resultList.className = 'result-list';
