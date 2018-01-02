@@ -6,14 +6,13 @@ window.onload = () => {
 }
 
 function search() {
-  let searchValue = this.value;
-  let resultContainer = document.querySelector('.search-result');
-  let oldResult = document.querySelector('.result-list')
+  let searchValue = this.value,
+      resultContainer = document.querySelector('.search-result'),
+      oldResult = document.querySelector('.result-list');
 
-  if (oldResult) { oldResult.parentNode.removeChild(oldResult); }
+  oldResult && oldResult.parentNode.removeChild(oldResult);
 
-  if (!searchValue) return;
-  if (!window.citiesInfo) return;
+  if (!searchValue || !window.citiesInfo) return;
 
   let resultList = document.createElement('ul');
   resultList.className = 'result-list';
@@ -21,12 +20,7 @@ function search() {
   window.citiesInfo.forEach(cityInfo => {
     let hasFound = cityInfo.city.includes(searchValue);
 
-    if (hasFound) {
-      let cityName = document.createTextNode(cityInfo.city);
-      let item = document.createElement('li');
-      item.appendChild(cityName)
-      resultList.appendChild(item);
-    }
+    hasFound && appendResult(cityInfo, resultList);
   });
 
   resultContainer.appendChild(resultList);
@@ -41,4 +35,32 @@ function getData() {
   httpRequest.open("GET", endpoint, false);
   httpRequest.send();
   window.citiesInfo = JSON.parse(httpRequest.responseText);
+}
+
+function formatNumber(cityInfo) {
+  let rawNumber = [...cityInfo.population],
+      formattedNumber = '', isLastNumberGroup, separator, numberGroup;
+
+  while (rawNumber.length > 0) {
+    numberGroup = rawNumber.splice(-3, 3),
+    isLastNumberGroup = rawNumber.length === 0 && rawNumber.length <= 3;
+
+    separator = isLastNumberGroup ? '' : ',';
+    formattedNumber = `${separator}${numberGroup.join('')}${formattedNumber}`;
+  }
+
+  return formattedNumber;
+}
+
+function appendResult(cityInfo, resultList) {
+  let listItem = document.createElement('li'),
+      cityName = document.createTextNode(`${cityInfo.city}, ${cityInfo.state}`),
+      popElement = document.createElement('span'),
+      populationNumber = formatNumber(cityInfo),
+      popElementText = document.createTextNode(populationNumber);
+
+  listItem.appendChild(cityName);
+  popElement.appendChild(popElementText);
+  listItem.appendChild(popElement);
+  resultList.appendChild(listItem);
 }

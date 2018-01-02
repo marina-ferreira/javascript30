@@ -6,12 +6,16 @@
 
 body {
   background: #5D8CD3;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .search {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 80vw;
 }
 
 .form .search-input {
@@ -31,6 +35,8 @@ body {
 }
 
 .search-result li {
+  display: flex;
+  justify-content: space-between;
   list-style-type: none;
   background: #fafafa;
   padding: 10px 20px;
