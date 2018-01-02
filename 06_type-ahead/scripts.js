@@ -2,11 +2,34 @@ window.onload = () => {
   let searchInput = document.querySelector('.search-input');
   searchInput.addEventListener('keyup', search);
 
-  let cities = getData();
+  getData();
 }
 
-function search(m) {
+function search() {
+  let searchValue = this.value;
+  let resultContainer = document.querySelector('.search-result');
+  let oldResult = document.querySelector('.result-list')
 
+  if (!searchValue) return;
+  if (!window.citiesInfo) return;
+
+  if (oldResult) { oldResult.parentNode.removeChild(oldResult); }
+
+  let resultList = document.createElement('ul');
+  resultList.className = 'result-list';
+
+  window.citiesInfo.forEach(cityInfo => {
+    let hasFound = cityInfo.city.includes(searchValue);
+
+    if (hasFound) {
+      let cityName = document.createTextNode(cityInfo.city);
+      let item = document.createElement('li');
+      item.appendChild(cityName)
+      resultList.appendChild(item);
+    }
+  });
+
+  resultContainer.appendChild(resultList);
 }
 
 function getData() {
@@ -17,5 +40,5 @@ function getData() {
 
   httpRequest.open("GET", endpoint, false);
   httpRequest.send();
-  return httpRequest.responseText;
+  window.citiesInfo = JSON.parse(httpRequest.responseText);
 }
