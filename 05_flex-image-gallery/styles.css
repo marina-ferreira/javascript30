@@ -10,10 +10,19 @@
 body {
   color: #fff;
   font-family: 'Audiowide', cursive;
+}
+
+.panels {
+  height: 100vh;
   overflow: hidden;
+  display: flex;
 }
 
 .panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: width 1.2s cubic-bezier(.22, -0.52, .41, 2.01);
   text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
 }
@@ -25,8 +34,9 @@ body {
 
 .panel .title {
   font-family: 'Play', sans-serif;
-  font-size: 20px;
-  visibility: hidden;
+  font-size: 22px;
+  text-transform: uppercase;
+  /* visibility: hidden; */
   opacity: 1;
   transition: all 1.2s;
 }
@@ -34,14 +44,33 @@ body {
 .panel .details {
   font-family: 'Play', sans-serif;
   font-size: 16px;
-  visibility: hidden;
+  /* visibility: hidden; */
   opacity: 1;
   transition: all 1.2s;
+}
+
+.panel .details .item {
+  display: block;
 }
 
 .panel .details .item a {
   color: #fff;
   text-decoration: none;
+}
+
+.panel .details .line {
+  display: block;
+}
+
+.panel .details .line.second {
+  margin-left: 10px;
+ }
+
+.panel > * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .panel.one {
