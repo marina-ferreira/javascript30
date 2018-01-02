@@ -23,7 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: width 1.2s cubic-bezier(.22, -0.52, .41, 2.01);
+  transition: flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
   text-shadow: 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
 }
 
@@ -33,24 +33,20 @@ body {
 }
 
 .panel .title {
+  flex: 3;
   font-family: 'Play', sans-serif;
   font-size: 22px;
   text-transform: uppercase;
-  /* visibility: hidden; */
-  opacity: 1;
-  transition: all 1.2s;
 }
 
 .panel .details {
+  flex: 3;
   font-family: 'Play', sans-serif;
-  font-size: 16px;
-  /* visibility: hidden; */
-  opacity: 1;
-  transition: all 1.2s;
+  font-size: 18px;
 }
 
 .panel .details .item {
-  display: block;
+  list-style-type: none;
 }
 
 .panel .details .item a {
@@ -58,33 +54,35 @@ body {
   text-decoration: none;
 }
 
-.panel .details .line {
-  display: block;
-}
-
-.panel .details .line.second {
-  margin-left: 10px;
- }
-
 .panel > * {
   flex: 1;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  transition: transform 0.5s;
 }
 
+.panel.open {
+  flex: 5;
+}
+
+.panel > *:first-child { transform: translateY(-200px); }
+.panel.details-active > *:first-child { transform: translateY(0); }
+.panel > *:last-child { transform: translateY(200px); }
+.panel.details-active > *:last-child { transform: translateY(0); }
+
 .panel.one {
-  background: #463785 url('http://lorempixel.com/600/1000/nightlife/');
+  background: #463785 url('http://lorempixel.com/1000/1000/nightlife/');
 }
 .panel.two {
-  background: #124559 url('http://lorempixel.com/600/1000/abstract/');
+  background: #124559 url('http://lorempixel.com/1000/1000/abstract/');
 }
 .panel.three {
-  background: #4A1942 url('http://lorempixel.com/600/1000/animals/');
+  background: #4A1942 url('http://lorempixel.com/1000/1000/animals/');
 }
 .panel.four {
-  background: #598392 url('http://lorempixel.com/600/1000/people/');
+  background: #598392 url('http://lorempixel.com/1000/1000/people/');
 }
 .panel.five {
-  background: #893168 url('http://lorempixel.com/600/1000/nature/');
+  background: #893168 url('http://lorempixel.com/1000/1000/nature/');
 }
