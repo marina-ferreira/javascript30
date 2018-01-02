@@ -54,3 +54,8 @@ body {
   margin-top: -12px;
   transform: perspective(10px) rotateX(1deg);
 }
+
+.search-result li .highlight {
+  color: #fff;
+  background: #5D8CD3;
+}

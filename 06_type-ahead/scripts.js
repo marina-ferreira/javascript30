@@ -17,10 +17,11 @@ function search() {
   let resultList = document.createElement('ul');
   resultList.className = 'result-list';
 
-  window.citiesInfo.forEach(cityInfo => {
-    let hasFound = cityInfo.city.includes(searchValue);
+  window.citiesInfo.forEach((cityInfo, index) => {
+    let cityName = cityInfo.city.toLowerCase();
+    let matchResult = cityName.match(searchValue); // Chicago -- ag
 
-    hasFound && appendResult(cityInfo, resultList);
+    matchResult && appendResult(cityInfo, matchResult, resultList);
   });
 
   resultContainer.appendChild(resultList);
@@ -52,15 +53,49 @@ function formatNumber(cityInfo) {
   return formattedNumber;
 }
 
-function appendResult(cityInfo, resultList) {
-  let listItem = document.createElement('li'),
-      cityName = document.createTextNode(`${cityInfo.city}, ${cityInfo.state}`),
-      popElement = document.createElement('span'),
-      populationNumber = formatNumber(cityInfo),
-      popElementText = document.createTextNode(populationNumber);
+function appendResult(cityInfo, matchResult, resultList) {
+  let listItem,
+      cityNameContainer = document.createElement('div');
 
-  listItem.appendChild(cityName);
+  if (matchResult) {
+    listItem = highlightResult(matchResult)
+  } else {
+    listItem = document.createElement('li');
+    let cityName = document.createTextNode(`${cityInfo.city}, ${cityInfo.state}`);
+    listItem.appendChild(cityName);
+  }
+
+  popElement = document.createElement('span'),
+  populationNumber = formatNumber(cityInfo),
+  popElementText = document.createTextNode(populationNumber);
+
   popElement.appendChild(popElementText);
   listItem.appendChild(popElement);
   resultList.appendChild(listItem);
+}
+
+function highlightResult(matchResult) {
+  let noHighlightArray = matchResult.input.split(matchResult[0]); // ["ab", "efab", "f"]
+  let cityNameContainer = document.createElement('div');
+  let listItem = document.createElement('li');
+
+  noHighlightArray.forEach((element, index, array) => {
+    let noHighlightSpan = document.createElement('span');
+    noHighlightText = document.createTextNode(element);
+    noHighlightSpan.appendChild(noHighlightText);
+
+    cityNameContainer.appendChild(noHighlightSpan);
+
+    if (index + 1 !== array.length) {
+      let highlightSpan = document.createElement('span');
+      let highlightText = document.createTextNode(matchResult[0]);
+      highlightSpan.className = 'highlight';
+      highlightSpan.appendChild(highlightText);
+      noHighlightSpan.after(highlightSpan);
+    } else {
+      listItem.appendChild(cityNameContainer);
+    }
+  });
+
+  return listItem;
 }
