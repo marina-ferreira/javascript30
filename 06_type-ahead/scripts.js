@@ -7,6 +7,13 @@ window.onload = () => {
 
 const states = [];
 
+function getData() {
+  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+  fetch(endpoint).then(response => response.json())
+                 .then(data => states.push(...data));
+}
+
 function search() {
   let regex = new RegExp(this.value, 'gi');
   let matches = states.filter(stateData => stateData.city.match(regex));
@@ -33,11 +40,4 @@ function displayMatches(wordToMatch, matches) {
   }).join('');
 
   list.innerHTML = listItems;
-}
-
-function getData() {
-  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
-
-  fetch(endpoint).then(response => response.json())
-                 .then(data => states.push(...data));
 }
