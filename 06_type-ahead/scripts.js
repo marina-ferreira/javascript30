@@ -14,21 +14,24 @@ function search() {
 }
 
 function displayMatches(wordToMatch, matches) {
-  let regex = new RegExp(wordToMatch, 'gi');
+  let list = document.querySelector('ul.search-result'),
+      regex = new RegExp(wordToMatch, 'gi');
+
+  if (wordToMatch == '') { return list.innerHTML = ''; }
 
   let listItems = matches.map(stateData => {
-    let cityName = stateData.city.replace(regex, `<span class="highlight">${wordToMatch}</span>`);
-    let stateName = stateData.state.replace(regex, `<span class="highlight">${wordToMatch}</span>`);
+    let cityName = stateData.city.replace(regex, `<span class="highlight">${wordToMatch}</span>`),
+        stateName = stateData.state.replace(regex, `<span class="highlight">${wordToMatch}</span>`),
+        population = Number(stateData.population).toLocaleString();
 
     return `
       <li>
         <span>${cityName}, ${stateName}</span>
-        <span>${formatNumber(stateData.population)}</span>
+        <span>${population}</span>
       </li>
     `;
   }).join('');
 
-  let list = document.querySelector('ul.search-result');
   list.innerHTML = listItems;
 }
 
@@ -37,19 +40,4 @@ function getData() {
 
   fetch(endpoint).then(response => response.json())
                  .then(data => states.push(...data));
-}
-
-function formatNumber(cityInfo) {
-  let rawNumber = [...cityInfo],
-      formattedNumber = '', isLastNumberGroup, separator, numberGroup;
-
-  while (rawNumber.length > 0) {
-    numberGroup = rawNumber.splice(-3, 3),
-    isLastNumberGroup = rawNumber.length === 0 && rawNumber.length <= 3;
-
-    separator = isLastNumberGroup ? '' : ',';
-    formattedNumber = `${separator}${numberGroup.join('')}${formattedNumber}`;
-  }
-
-  return formattedNumber;
 }
