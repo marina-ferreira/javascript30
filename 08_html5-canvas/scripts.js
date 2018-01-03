@@ -1,7 +1,17 @@
 window.onload = () => {
-  let isMouseUp = true;
-  let canvas = document.querySelector('#canvas');
-  let x, y;
+  const canvas = document.querySelector('#canvas');
+  const context = canvas.getContext('2d');
+  let isMouseUp = true,
+      hue = 0,
+      thickness = true,
+      x, y;
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  context.lineCap = 'round';
+  context.lineJoin = "round";
+  context.lineWidth = 100;
 
   getClickPosition = (e) => {
     isMouseUp = e.type == 'mouseup';
@@ -13,16 +23,19 @@ window.onload = () => {
   draw = (e) => {
     if (isMouseUp) return;
 
-    let context = canvas.getContext('2d');
+    context.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 
     context.beginPath();
-    context.lineJoin = "round";
     context.moveTo(x, y);
     context.lineTo(e.offsetX, e.offsetY);
     context.stroke();
 
-    x = e.offsetX;
-    y = e.offsetY;
+    [x, y] = [e.offsetX, e.offsetY];
+    hue++;
+    hue = hue % 360;
+
+    if (context.lineWidth > 100 || context.lineWidth <= 1) { thickness = !thickness; }
+    thickness ? context.lineWidth++ : context.lineWidth--;
   }
 
   canvas.addEventListener('mousedown', getClickPosition);
