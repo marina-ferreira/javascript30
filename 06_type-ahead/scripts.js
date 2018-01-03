@@ -8,26 +8,23 @@ window.onload = () => {
 const states = [];
 
 function search() {
-  let searchValue = this.value,
-      resultContainer = document.querySelector('.search-result'),
-      oldResult = document.querySelector('.result-list');
+  let regex = new RegExp(this.value, 'gi');
+  let matches = states.filter(stateData => stateData.city.match(regex));
+  displayMatches(matches);
+}
 
-  oldResult && oldResult.parentNode.removeChild(oldResult);
+function displayMatches(matches) {
+  let listItems = matches.map(stateData => {
+    return `
+      <li>
+        <span>${stateData.city}, ${stateData.state}</span>
+        <span>${stateData.population}</span>
+      </li>
+    `;
+  }).join('');
 
-  if (!searchValue || !states) return;
-
-  let resultList = document.createElement('ul');
-  resultList.className = 'result-list';
-
-  states.forEach((cityInfo) => {
-    let cityName = cityInfo.city,
-        regex = new RegExp(searchValue, 'i'),
-        matchResult = cityName.match(regex);
-
-    matchResult && appendResult(cityInfo, matchResult, resultList);
-  });
-
-  resultContainer.appendChild(resultList);
+  let list = document.querySelector('ul.search-result');
+  list.innerHTML = listItems;
 }
 
 function getData() {
@@ -50,38 +47,4 @@ function formatNumber(cityInfo) {
   }
 
   return formattedNumber;
-}
-
-function appendResult(cityInfo, matchResult, resultList) {
-  let listItem = document.createElement('li'),
-      spanList = highlightResult(cityInfo.city, matchResult);
-
-  listItem.appendChild(spanList);
-
-  let populationSpan = document.createElement('span'),
-      populationTextNode = document.createTextNode(formatNumber(cityInfo));
-
-  populationSpan.appendChild(populationTextNode);
-  listItem.appendChild(populationSpan);
-  resultList.appendChild(listItem);
-}
-
-function highlightResult(cityName, matchResult) {
-  let cityNameContainer = document.createElement('div'),
-      noHighlightArray = cityName.split(matchResult[0]),
-      listItem = document.createElement('li');
-
-  noHighlightArray.forEach((element, index, array) => {
-    let noHighlightText = document.createTextNode(element),
-        highlightSpan = document.createElement('span'),
-        highlightText = document.createTextNode(matchResult[0]);
-
-    highlightSpan.className = 'highlight';
-    highlightSpan.appendChild(highlightText);
-    cityNameContainer.appendChild(noHighlightText);
-
-    (index + 1 !== array.length) && cityNameContainer.appendChild(highlightSpan);
-  });
-
-  return cityNameContainer;
 }
