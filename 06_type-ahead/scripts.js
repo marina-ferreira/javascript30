@@ -5,6 +5,8 @@ window.onload = () => {
   getData();
 }
 
+const states = [];
+
 function search() {
   let searchValue = this.value,
       resultContainer = document.querySelector('.search-result'),
@@ -12,12 +14,12 @@ function search() {
 
   oldResult && oldResult.parentNode.removeChild(oldResult);
 
-  if (!searchValue || !window.citiesInfo) return;
+  if (!searchValue || !states) return;
 
   let resultList = document.createElement('ul');
   resultList.className = 'result-list';
 
-  window.citiesInfo.forEach((cityInfo) => {
+  states.forEach((cityInfo) => {
     let cityName = cityInfo.city,
         regex = new RegExp(searchValue, 'i'),
         matchResult = cityName.match(regex);
@@ -31,12 +33,8 @@ function search() {
 function getData() {
   const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-  var httpRequest = new XMLHttpRequest();
-  httpRequest.onreadystatechange = search;
-
-  httpRequest.open("GET", endpoint, false);
-  httpRequest.send();
-  window.citiesInfo = JSON.parse(httpRequest.responseText);
+  fetch(endpoint).then(response => response.json())
+                 .then(data => states.push(...data));
 }
 
 function formatNumber(cityInfo) {
