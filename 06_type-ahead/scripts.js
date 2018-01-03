@@ -17,9 +17,10 @@ function search() {
   let resultList = document.createElement('ul');
   resultList.className = 'result-list';
 
-  window.citiesInfo.forEach((cityInfo, index) => {
-    let cityName = cityInfo.city.toLowerCase();
-    let matchResult = cityName.match(searchValue); // Chicago -- ag
+  window.citiesInfo.forEach((cityInfo) => {
+    let cityName = cityInfo.city,
+        regex = new RegExp(searchValue, 'i'),
+        matchResult = cityName.match(regex);
 
     matchResult && appendResult(cityInfo, matchResult, resultList);
   });
@@ -54,48 +55,35 @@ function formatNumber(cityInfo) {
 }
 
 function appendResult(cityInfo, matchResult, resultList) {
-  let listItem,
-      cityNameContainer = document.createElement('div');
+  let listItem = document.createElement('li'),
+      spanList = highlightResult(cityInfo.city, matchResult);
 
-  if (matchResult) {
-    listItem = highlightResult(matchResult)
-  } else {
-    listItem = document.createElement('li');
-    let cityName = document.createTextNode(`${cityInfo.city}, ${cityInfo.state}`);
-    listItem.appendChild(cityName);
-  }
+  listItem.appendChild(spanList);
 
-  popElement = document.createElement('span'),
-  populationNumber = formatNumber(cityInfo),
-  popElementText = document.createTextNode(populationNumber);
+  let populationSpan = document.createElement('span'),
+      populationTextNode = document.createTextNode(formatNumber(cityInfo));
 
-  popElement.appendChild(popElementText);
-  listItem.appendChild(popElement);
+  populationSpan.appendChild(populationTextNode);
+  listItem.appendChild(populationSpan);
   resultList.appendChild(listItem);
 }
 
-function highlightResult(matchResult) {
-  let noHighlightArray = matchResult.input.split(matchResult[0]); // ["ab", "efab", "f"]
-  let cityNameContainer = document.createElement('div');
-  let listItem = document.createElement('li');
+function highlightResult(cityName, matchResult) {
+  let cityNameContainer = document.createElement('div'),
+      noHighlightArray = cityName.split(matchResult[0]),
+      listItem = document.createElement('li');
 
   noHighlightArray.forEach((element, index, array) => {
-    let noHighlightSpan = document.createElement('span');
-    noHighlightText = document.createTextNode(element);
-    noHighlightSpan.appendChild(noHighlightText);
+    let noHighlightText = document.createTextNode(element),
+        highlightSpan = document.createElement('span'),
+        highlightText = document.createTextNode(matchResult[0]);
 
-    cityNameContainer.appendChild(noHighlightSpan);
+    highlightSpan.className = 'highlight';
+    highlightSpan.appendChild(highlightText);
+    cityNameContainer.appendChild(noHighlightText);
 
-    if (index + 1 !== array.length) {
-      let highlightSpan = document.createElement('span');
-      let highlightText = document.createTextNode(matchResult[0]);
-      highlightSpan.className = 'highlight';
-      highlightSpan.appendChild(highlightText);
-      noHighlightSpan.after(highlightSpan);
-    } else {
-      listItem.appendChild(cityNameContainer);
-    }
+    (index + 1 !== array.length) && cityNameContainer.appendChild(highlightSpan);
   });
 
-  return listItem;
+  return cityNameContainer;
 }
