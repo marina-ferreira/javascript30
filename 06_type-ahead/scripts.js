@@ -10,15 +10,20 @@ const states = [];
 function search() {
   let regex = new RegExp(this.value, 'gi');
   let matches = states.filter(stateData => stateData.city.match(regex));
-  displayMatches(matches);
+  displayMatches(this.value, matches);
 }
 
-function displayMatches(matches) {
+function displayMatches(wordToMatch, matches) {
+  let regex = new RegExp(wordToMatch, 'gi');
+
   let listItems = matches.map(stateData => {
+    let cityName = stateData.city.replace(regex, `<span class="highlight">${wordToMatch}</span>`);
+    let stateName = stateData.state.replace(regex, `<span class="highlight">${wordToMatch}</span>`);
+
     return `
       <li>
-        <span>${stateData.city}, ${stateData.state}</span>
-        <span>${stateData.population}</span>
+        <span>${cityName}, ${stateName}</span>
+        <span>${formatNumber(stateData.population)}</span>
       </li>
     `;
   }).join('');
@@ -35,7 +40,7 @@ function getData() {
 }
 
 function formatNumber(cityInfo) {
-  let rawNumber = [...cityInfo.population],
+  let rawNumber = [...cityInfo],
       formattedNumber = '', isLastNumberGroup, separator, numberGroup;
 
   while (rawNumber.length > 0) {
