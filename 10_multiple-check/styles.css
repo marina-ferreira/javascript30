@@ -36,6 +36,10 @@ ul.list .item .checkbox {
   flex: 1.5;
 }
 
+ul.list .item .checkbox:checked + .item-description {
+  text-decoration: line-through;
+}
+
 ul.list .item .item-description {
   flex: 6;
   font-size: 20px;
