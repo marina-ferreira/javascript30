@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #B388FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.controls {
+  background: #fff;
+  height: 30px;
+  display: flex;
+}
+
+.controls > * {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+}
+
+.controls span:first-child {
+  flex: 1;
+}
