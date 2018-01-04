@@ -1,30 +1,21 @@
 window.onload = () => {
-  let items = document.querySelectorAll('li.item');
-  let checkboxes = document.querySelectorAll('input.checkbox');
-
-  let isShiftDown = false;
-  let y1, y2;
+  let checkboxes = document.querySelectorAll('input.checkbox'),
+      inBetween = false,
+      lastChecked;
 
   let checkBox = (e) => {
-    if (!isShiftDown) {
-      y1 = e.target.offsetTop;
-      return;
+    if (e.shiftKey && e.target.checked) {
+      checkboxes.forEach(checkbox => {
+        if (checkbox === e.target || checkbox === lastChecked) {
+          inBetween = !inBetween;
+        }
+
+        if (inBetween) { checkbox.checked = true; }
+      });
     }
 
-    y2 = e.target.offsetTop;
-
-    checkboxes.forEach(checkbox => {
-      if (checkbox.offsetTop > y1 && checkbox.offsetTop < y2) {
-        checkbox.checked = true;
-      }
-
-      if (checkbox.offsetTop < y1 && checkbox.offsetTop > y2) {
-        checkbox.checked = true;
-      }
-    });
+    lastChecked = e.target;
   }
 
-  document.addEventListener('keydown', (e) => isShiftDown = e.key === 'Shift');
-  document.addEventListener('keyup', (e) => isShiftDown = false);
-  checkboxes.forEach(checkbox => checkbox.addEventListener('change', checkBox));
+  checkboxes.forEach(checkbox => checkbox.addEventListener('click', checkBox));
 }
