@@ -15,18 +15,37 @@ body {
 
 .controls {
   background: #fff;
-  height: 30px;
+  height: 70px;
   display: flex;
+  flex-direction: column;
+  margin-top: -75px;
+  padding: 0 20px;
 }
 
 .controls > * {
-  flex: 4;
+  flex: 3;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border: 1px solid green;
+  z-index: 1;
 }
 
-.controls span:first-child {
+.controls .seek-bar {
+  flex: 1;
+}
+
+.control-set {
+  display: flex;
+}
+
+.control-set > * {
+  flex: 4;
+  margin-right: 30px;
+}
+
+.control-set > *:last-child {
+  margin-right: 0;
+}
+
+.control-set .play {
   flex: 1;
 }
