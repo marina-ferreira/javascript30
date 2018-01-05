@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>HTML5 Video Player</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./styles.css"/>
 </head>
 <body>
@@ -17,7 +18,10 @@
         <input type="range" class="seek-bar" data-control="seek">
       </div>
       <div class="control-set lower">
-        <input type="button" class="play" value="Play" data-control="play">
+        <button class="play" data-control="play">
+          <i class="fa fa-play" aria-hidden="true"></i>
+          <i class="fa fa-pause" aria-hidden="true"></i>
+        </button>
         <input type="range" class="volume" data-control="volume">
         <input type="range" class="speed" data-control="speed">
       </div>

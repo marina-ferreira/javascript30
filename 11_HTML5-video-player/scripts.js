@@ -2,8 +2,8 @@ let video, controls, seeker;
 
 window.onload = () => {
   video = document.querySelector('video');
-  controls = document.querySelectorAll('.controls input');
-  seeker = document.querySelector('.controls .seek-bar');
+  controls = document.querySelectorAll('.control-set > *');
+  seeker = document.querySelector('.control-set .seek-bar');
 
   video.volume = 0.5;
   seeker.min = 0;
@@ -20,7 +20,18 @@ window.onload = () => {
 
 function handleControls(e) { window[e.target.dataset.control](this); }
 
-function play() { video.paused ? video.play() : video.pause(); }
+function play() {
+  let play = document.querySelector('.control-set .play');
+
+  if (video.paused) {
+    play.classList.toggle('playing');
+    video.play();
+  } else {
+    play.classList.toggle('playing');
+    video.pause();
+  }
+
+}
 function volume(range) { video.volume = range.value / 100; }
 function speed(range) { video.playbackRate = range.value / 25; }
 
