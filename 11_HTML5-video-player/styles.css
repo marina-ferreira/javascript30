@@ -29,23 +29,23 @@ body {
   z-index: 1;
 }
 
-.controls .seek-bar {
+.control-set.upper .seek-bar {
   flex: 1;
 }
 
-.control-set {
+.control-set.lower {
   display: flex;
 }
 
-.control-set > * {
+.control-set.lower > * {
   flex: 4;
   margin-right: 30px;
 }
 
-.control-set > *:last-child {
+.control-set.lower > *:last-child {
   margin-right: 0;
 }
 
-.control-set .play {
+.control-set.lower .play {
   flex: 1;
 }
