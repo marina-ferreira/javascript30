@@ -16,6 +16,7 @@ body {
   background: #FFF;
   padding: 50px 100px;
   text-align: justify;
+  overflow: hidden;
 }
 
 .article .title {
@@ -36,12 +37,24 @@ body {
   text-indent: 40px;
 }
 
-.article section:nth-of-type(odd) img {
+.article section img {
   float: right;
   margin: 15px 0 10px 20px;
+  left: 50%;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.74, 0.95);
 }
 
 .article section:nth-of-type(even) img {
   float: left;
   margin: 15px 20px 10px 0;
+  left: -50%;
+}
+
+.article section img.visible {
+  visibility: visible;
+  opacity: 1;
+  left: 0;
 }
