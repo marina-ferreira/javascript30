@@ -28,7 +28,7 @@ body {
 }
 
 .player:hover .player__controls { transform: translateY(-46px) }
-.player__video:hover .player__controls { transform: translateY(-46px) }
+.player__video:hover + .player__controls { transform: translateY(-46px) }
 .player__controls:hover { transform: translateY(-46px) }
 .player__controls *:hover .player__controls { transform: translateY(-46px) }
 
@@ -37,10 +37,15 @@ body {
 
 .progress {
   flex-basis: 100%;
-  background: #E00084;
+  background: rgba(0, 0, 0, 0.5);
   height: 8px;
   color: white;
   margin-bottom: 6px;
+}
+
+.progress .progress__filled {
+  background: #E00084;
+  height: 8px;
 }
 
 .control-set {
@@ -51,24 +56,24 @@ body {
 
 .control-set > * { flex: 1 }
 
-.control-set .player__button {
+.player__button {
   background: transparent;
   height: 25px;
   color: #FFF;
   border: none;
 }
 
-.control-set .player__button[data-control="play"] { margin-right: 20px; }
-.control-set .player__button:last-of-type { margin-right: 0 }
+.player__button[data-control="play"] { margin-right: 20px }
+.player__button:last-of-type { margin-right: 0 }
 
-.control-set .player__slider {
+.player__slider {
   flex: 2;
   margin-right: 20px;
 }
 
-.control-set input[type=range]:focus { outline: none }
+input[type=range]:focus { outline: none }
 
-.control-set input[type=range] {
+input[type=range] {
   -webkit-appearance: none;
   height: 6px;
   background: #e5e5e5;
@@ -76,9 +81,9 @@ body {
   cursor: pointer;
 }
 
-.control-set input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; }
 
-.control-set input[type=range]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 10px;
   width: 10px;

@@ -14,17 +14,16 @@
 
     <div class="player__controls">
       <div class="progress">
-        <div class="progress__filled" data-control="seek"></div>
+        <div class="progress__filled"></div>
       </div>
       <div class="control-set">
         <button class="player__button" data-control="play">►</button>
 
-        <input type="range" class="player__slider" data-control="volume" min="0" max="1" step="0.1" value="0.5">
-        <input type="range" class="player__slider" data-control="speed" min="0.5" max="2" step="0.1" value="1">
+        <input type="range" data-control="volume" class="player__slider" min="0" max="1" step="0.1" value="0.5">
+        <input type="range" data-control="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
 
-        <button class="player__button" data-control="skip"><< 10s</button>
-        <button class="player__button" data-control="skip">25s >></button>
-
+        <button class="player__button" data-time="-10"><< 10s</button>
+        <button class="player__button" data-time="20">25s >></button>
       </div>
     </div>
   </div>
