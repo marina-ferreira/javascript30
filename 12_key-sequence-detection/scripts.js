@@ -1,6 +1,6 @@
 const sequenceToMatch = 'donut';
-let inputSequence = [];
-let angle;
+let inputSequence = [],
+    angle;
 
 function detectKeySequence(e) {
   inputSequence.push(e.key);
