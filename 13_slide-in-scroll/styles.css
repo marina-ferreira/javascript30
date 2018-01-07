@@ -36,7 +36,12 @@ body {
   text-indent: 40px;
 }
 
-.article section img {
+.article section:nth-of-type(odd) img {
   float: right;
   margin: 15px 0 10px 20px;
+}
+
+.article section:nth-of-type(even) img {
+  float: left;
+  margin: 15px 20px 10px 0;
 }
