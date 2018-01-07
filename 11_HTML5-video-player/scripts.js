@@ -1,37 +1,30 @@
 let video, controls, seeker;
 
-window.onload = () => {
-  video = document.querySelector('video');
-  controls = document.querySelectorAll('.control-set > *');
-  seeker = document.querySelector('.control-set .seek-bar');
+video = document.querySelector('video');
+controls = document.querySelectorAll('.control-set > *');
+seeker = document.querySelector('.control-set .seek-bar');
 
-  video.volume = 0.5;
-  seeker.min = 0;
-  seeker.max = video.duration;
-  seeker.value = 0;
+video.volume = 0.5;
+seeker.min = 0;
+seeker.max = video.duration;
+seeker.value = 0;
 
-  video.addEventListener('timeupdate', autoSeek);
+video.addEventListener('timeupdate', autoSeek);
 
-  controls.forEach(input => {
-    let eventType = input.classList.contains('play') ? 'click' : 'change';
-    input.addEventListener(eventType, handleControls);
-  });
-}
+controls.forEach(input => {
+  let eventType = input.classList.contains('play') ? 'click' : 'change';
+  input.addEventListener(eventType, handleControls);
+});
 
 function handleControls(e) { window[e.target.dataset.control](this); }
 
 function play() {
   let play = document.querySelector('.control-set .play');
 
-  if (video.paused) {
-    play.classList.toggle('playing');
-    video.play();
-  } else {
-    play.classList.toggle('playing');
-    video.pause();
-  }
-
+  play.classList.toggle('playing');
+  video.paused ? video.play() : video.pause();
 }
+
 function volume(range) { video.volume = range.value / 100; }
 function speed(range) { video.playbackRate = range.value / 25; }
 
