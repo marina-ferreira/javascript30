@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('./img/bg.jpg') no-repeat;
+  background-size: 1500px;
+  background-position-x: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  font-family: 'Permanent Marker', cursive;
+  color: #FFF;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 2px #000;
+  margin-bottom: 50px;
+}
+
+.menu {
+  background: rgba(255, 255, 255, .9);
+  padding: 20px 40px 40px;
+  min-width: 300px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+}
+
+.menu .icon {
+  width: 60px;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  margin-bottom: 15px;
+}
+
+.menu .item {
+  list-style: none;
+  padding: 15px 0;
+  font-size: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+}
+
+.menu .item .item-name {
+  margin-left: 40px;
+}
+
+.menu .item .checkbox {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 15px;
+  border: 1px solid #000;
+  border-radius: 3px;
+  outline: none;
+  position: absolute;
+}
+
+.menu .item .checkbox:checked {
+  width: 20px;
+  height: 20px;
+  background: url(./img/single-sushi.png);
+  background-size: 20px;
+  border: none;
+}
+
+.menu .add-item,
+.menu .btn {
+  height: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.menu .btn {
+  background: #d50000;
+  color: #FFF;
+}
