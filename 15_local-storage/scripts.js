@@ -3,7 +3,7 @@ let addItemButton = document.querySelector('button[name="add-item"]'),
     item = document.querySelector('.item'),
     storage = window.localStorage;
 
-function addItem(e) {
+function addItem() {
   storage.setItem(storage.length, itemNameInput.value);
 
   buildItem(itemNameInput.value);
