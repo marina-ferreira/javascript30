@@ -41,7 +41,7 @@ body {
   margin-bottom: 15px;
 }
 
-.menu .item {
+.menu-list .item {
   list-style: none;
   padding: 15px 0;
   font-size: 20px;
@@ -50,30 +50,25 @@ body {
   align-items: center;
 }
 
-.menu .item .item-name {
-  margin-left: 40px;
+.item input[type="checkbox"] {
+  display: none;
 }
 
-.menu .item .checkbox {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  margin-right: 15px;
-  border: 1px solid #000;
-  border-radius: 3px;
-  outline: none;
-  position: absolute;
+.item input[type="checkbox"] + label {
+  display: flex;
+  align-items: center;
 }
 
-.menu .item .checkbox:checked {
-  width: 20px;
-  height: 20px;
-  background: url(./img/single-sushi.png);
-  background-size: 20px;
-  border: none;
+.item input[type="checkbox"] + label:before {
+  content: '◻️';
+  margin-right: 20px;
 }
 
-.menu .item-name-input,
+.item input[type="checkbox"]:checked + label:before {
+  content: '🍣';
+}
+
+.menu .item-name,
 .menu .btn {
   height: 50px;
   padding: 10px;
@@ -83,7 +78,7 @@ body {
   outline: none;
 }
 
-.menu .item-name-input {
+.menu .item-name {
   font-size: 13px;
   width: 145px;
 }

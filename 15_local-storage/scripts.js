@@ -1,26 +1,44 @@
-let addItemButton = document.querySelector('button[name="add-item"]'),
-    itemNameInput = document.querySelector('input[name="add-item"]'),
-    item = document.querySelector('.item'),
-    storage = window.localStorage;
+let menuList = document.querySelector('.menu-list'),
+    form = document.querySelector('.add-items'),
+    storage = window.localStorage,
+    items = JSON.parse(storage.getItem('items')) || [];
 
-function addItem() {
-  storage.setItem(storage.length, itemNameInput.value);
+function addItem(e) {
+  e.preventDefault();
 
-  buildItem(itemNameInput.value);
-  itemNameInput.value = '';
-  itemNameInput.focus();
+  let text = this.querySelector('[name="add-item"]').value,
+      item = { text, done: false };
+
+  items.push(item);
+  storage.setItem('items', JSON.stringify(items));
+  populateList(items, menuList);
+  this.reset();
 }
 
-function buildList() {
-  Object.keys(storage).forEach(key => buildItem(storage[key]));
+function populateList(plates = [], platesList) {
+  menuList.innerHTML = plates.map((plate, i) => {
+    let checked = plate.done ? 'checked' : '';
+
+    return `
+      <li class="item">
+        <input type="checkbox" data-index=${i} id=item${i} ${checked}/>
+        <label for="item${i}">${plate.text}</label>
+      </li>
+    `;
+  }).join('');
 }
 
-function buildItem(itemName) {
-  let newItem = item.cloneNode(true);
-  newItem.querySelector('.item-name').textContent = itemName;
+function toggleDone(e) {
+  if (!e.target.matches('input')) return;
 
-  item.parentElement.append(newItem);
+  let element = e.target,
+      index = element.dataset.index;
+
+  items[index].done = !items[index].done;
+  storage.setItem('items', JSON.stringify(items));
 }
 
-window.onload = () => buildList();
-addItemButton.addEventListener('click', addItem);
+form.addEventListener('submit', addItem);
+menuList.addEventListener('click', toggleDone);
+
+populateList(items, menuList);
