@@ -73,16 +73,23 @@ body {
   border: none;
 }
 
-.menu .add-item,
+.menu .item-name-input,
 .menu .btn {
   height: 50px;
   padding: 10px;
   border: none;
   border-radius: 5px;
   margin-top: 30px;
+  outline: none;
+}
+
+.menu .item-name-input {
+  font-size: 13px;
+  width: 145px;
 }
 
 .menu .btn {
   background: #d50000;
   color: #FFF;
+  width: 78px;
 }
