@@ -1,12 +1,18 @@
 const videoList = document.querySelector('.videos'),
       videos = Array.from(document.querySelectorAll('[data-time]'));
+let hours, minutes, seconds, totalTime, min, sec;
 
-let videosLength = videos.map(video => {
-  let time = video.dataset.time.split(':');
-  return time.reduce((a, b) => parseInt(a) * 60 + parseInt(b), 0);
-});
+seconds = videos.map(video => video.dataset.time)
+                .map(timeCode => {
+                  [min, sec] = timeCode.split(':').map(parseFloat);
+                  console.log(min, sec);
+                  return min * 60 + sec;
+                }).reduce((total, secs) => total + secs);
 
-let fullLength = videosLength.reduce((a, b) => a + b, 0),
-    element = `<span class="full-length">Total length: ${fullLength}s</span>`;
+hours = Math.floor(seconds / 3600);
+seconds = seconds % 3600;
+minutes = Math.floor(seconds / 60);
+seconds = seconds % 60;
 
-videoList.insertAdjacentHTML('afterend', element);
+totalTime = `<span class="full-length">Total length: ${hours}h ${minutes}m ${seconds}s</span>`;
+videoList.insertAdjacentHTML('afterend', totalTime);
