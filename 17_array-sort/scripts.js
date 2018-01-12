@@ -4,18 +4,13 @@ const bands = [
   'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'
 ];
 
-const articlesRegex = new RegExp(/\bthe\b|\ban\b|\ba\b/, 'gi'),
-      bandList = document.querySelector('.band-list');
+const bandList = document.querySelector('.band-list');
 
-let sortedBands = bands.sort((a, b) => {
-  let strippedA = a.replace(articlesRegex, ' ').trim(),
-      strippedB = b.replace(articlesRegex, ' ').trim();
+function strip(str) {
+  return str.replace(/^(a |an |the )/gi, '').trim();
+}
 
-  if (strippedA < strippedB) return -1;
-  if (strippedA > strippedB) return 1;
-
-  return 0;
-});
+let sortedBands = bands.sort((a, b) => strip(a) < strip(b) ? -1 : 1);
 
 bandList.innerHTML = sortedBands.map(band => {
   return `<li class="band">${band}</li>`;
