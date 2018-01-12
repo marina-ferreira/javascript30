@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(to right, #4b6cb7, #182848);
+  color: #FFF;
+}
+
+.videos {
+  margin: auto;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.videos li {
+  list-style: none;
+  padding: 10px
+}
