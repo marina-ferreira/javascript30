@@ -6,13 +6,15 @@
 
 body {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 100vh;
   background: linear-gradient(to right, #4b6cb7, #182848);
   color: #FFF;
 }
 
 .videos {
-  margin: auto;
   height: 50vh;
   width: 50vw;
   display: flex;
@@ -23,4 +25,8 @@ body {
 .videos li {
   list-style: none;
   padding: 10px
+}
+
+.full-length {
+  font-size: 22px;
 }
