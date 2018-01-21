@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Get User Media Code Along!</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
   <div class="photobooth">
     <div class="controls">
       <button onClick="takePhoto()">Take Photo</button>
-<!--       <div class="rgb">
+      <div class="rgb">
         <label for="rmin">Red Min:</label>
         <input type="range" min=0 max=255 name="rmin">
         <label for="rmax">Red Max:</label>
@@ -29,7 +29,14 @@
         <input type="range" min=0 max=255 name="bmin">
         <label for="bmax">Blue Max:</label>
         <input type="range" min=0 max=255 name="bmax">
-      </div> -->
+      </div>
+
+      <div class="toggle-filters">
+        <input type="radio" name="toggleFilters" value="redEffect"> Red Filter
+        <input type="radio" name="toggleFilters" value="rgbSplit"> RGB Split
+        <input type="radio" name="toggleFilters" value="greenScreen"> Green Screen
+        <input type="radio" name="toggleFilters" value="noFilter" checked> No Filter
+      </div>
     </div>
 
     <canvas class="photo"></canvas>
