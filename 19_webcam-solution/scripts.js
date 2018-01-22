@@ -100,4 +100,3 @@ function setFilter(pixels) {
 getVideo();
 
 video.addEventListener('canplay', paintToCanvas);
-video.addEventListener('canplay', paintToCanvas);
