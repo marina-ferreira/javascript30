@@ -14,10 +14,19 @@ body {
 
 .speech-output {
   width: 40vw;
-  height: 40vh;
+  min-height: 40vh;
   background: #fff;
   opacity: .3;
   border-radius: 5px;
   box-shadow: 0 0 0 8px #fff, 1px 1px 1px #000;
   border: 2px dashed #AD1457;
+  padding: 30px;
+}
+
+.speech-output div {
+  margin-bottom: 10px;
+}
+
+.speech-output div:last-child {
+  margin-bottom: 0;
 }
