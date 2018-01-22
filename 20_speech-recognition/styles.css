@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.speech-output {
+  width: 40vw;
+  height: 40vh;
+  background: #fff;
+  opacity: .3;
+  border-radius: 5px;
+  box-shadow: 0 0 0 8px #fff, 1px 1px 1px #000;
+  border: 2px dashed #AD1457;
+}
