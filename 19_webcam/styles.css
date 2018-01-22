@@ -13,48 +13,68 @@
 
 body {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   height: 100vh;
   background: linear-gradient(to right, #4e54c8, #8f94fb);
 }
 
 .player {
-  width: 640px;
   height: 480px;
+  width: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-video, canvas {
-  position: absolute;
+video {
+  width: 160px;
+  position: relative;
+  z-index: 10;
+  float: right;
+  align-self: flex-start;
+  margin-top: -30px;
+  margin-right: -540px;
 }
 
 canvas {
   background: rgba(var(--red), var(--green), var(--blue), var(--opacity));
+  background: red;
+  position: absolute;
+  z-index: 1;
 }
 
 .screenshots {
-  margin-top: 20px;
-  min-height: 85px;
+  margin: -100px 100px 0;
+  height: 130px;
+  flex-basis: 100%;
 }
 
 .screenshots img {
-  width: 80px;
-  height: 60px;
-  margin: 10px 5px;
+  width: 120px;
+  padding: 12px 10px 30px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  background: white;
+  margin-right: 15px;
 }
 
 .controls {
-  width: 550px;
+  width: 20vw;
+  margin-right: 80px;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .controls > * {
   margin: 5px 5px;
+}
+
+.controls input[type="range"] {
+  width: 60%;
 }
 
 .btn {
@@ -66,3 +86,9 @@ canvas {
   border: none;
   outline: none;
 }
+
+.screenshots img:nth-child(5n+1) { transform: rotate(10deg); }
+.screenshots img:nth-child(5n+2) { transform: rotate(-2deg); }
+.screenshots img:nth-child(5n+3) { transform: rotate(8deg); }
+.screenshots img:nth-child(5n+4) { transform: rotate(-11deg); }
+.screenshots img:nth-child(5n+5) { transform: rotate(12deg); }
