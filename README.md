@@ -6,4 +6,4 @@ Build 30 things in 30 days with 30 tutorials
 
 No Frameworks×No Compilers×No Libraries×No Boilerplate
 
-https://javascript30.com/
+[javascript30.com](https://javascript30.com/)

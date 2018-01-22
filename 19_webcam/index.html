@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Videos</title>
+
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <div class="controls">
+    <div class="rgb">
+      <label for="red">Red min</label>
+      <input type="range" name="rmin" min="0" max="255" />
+      <label for="red">Red máx</label>
+      <input type="range" name="rmax" min="0" max="255" />
+
+      <label for="green">Green min</label>
+      <input type="range" name="gmin" min="0" max="255" />
+      <label for="green">Green máx</label>
+      <input type="range" name="gmax" min="0" max="255" />
+
+      <label for="blue">Blue min</label>
+      <input type="range" name="bmin" min="0" max="255" />
+      <label for="blue">Blue máx</label>
+      <input type="range" name="bmax" min="0" max="255" />
+    </div>
+
+    <div class="toggle-filters">
+      <input type="radio" name="toggleFilters" value="redEffect"> Red Filter
+      <input type="radio" name="toggleFilters" value="rgbSplit"> RGB Split
+      <input type="radio" name="toggleFilters" value="greenScreen"> Green Screen
+      <input type="radio" name="toggleFilters" value="noFilter" checked> No Filter
+    </div>
+
+    <input type="button" name="takeScreenshot" class="btn" value="Take Screenshot">
+  </div>
+
+  <div class="player">
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <video width="640" height="480"></video>
+  </div>
+
+  <div class="screenshots"></div>
+
+  <script src="./scripts.js"></script>
+</body>
+</html>
