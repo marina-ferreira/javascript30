@@ -1,25 +1,29 @@
-function recognizeSpeech() {
-  let output = document.querySelector('.speech-output'),
-      recognition = new window.webkitSpeechRecognition();
+let output = document.querySelector('.speech-output'),
+    mic = document.querySelector('.mic'),
+    recognition = new window.webkitSpeechRecognition();
 
-  recognition.lang = 'en-US';
-  recognition.start();
+recognition.interimResults = true;
+recognition.lang = 'en-US';
+recognition.start();
 
-  recognition.onstart = () => {
-    console.log('Voice recognition activated. Try speaking into the microphone.');
-  }
+let p = document.createElement('p');
+output.appendChild(p);
 
-  recognition.onresult = (event) => {
-    let result = event.results[0][0].transcript,
-        text = `<div>${result}.</div>`;
+function appendTranscript(e) {
+  let transcript = Array.from(e.results)
+                        .map(result => result[0])
+                        .map(result => result.transcript)
+                        .join('');
 
-    output.insertAdjacentHTML('beforeend', text);
-    recognition.stop();
-  }
+  p.textContent = transcript;
 
-  recognition.onend = (event) => {
-    recognition.start();
+  if (e.results[0].isFinal) {
+    p = document.createElement('p');
+    output.appendChild(p);
   }
 }
 
-recognizeSpeech();
+recognition.addEventListener('start', () => mic.classList.add('recording'));
+recognition.addEventListener('stop', () => mic.classList.remove('recording'));
+recognition.addEventListener('end', recognition.start);
+recognition.addEventListener('result', appendTranscript);
