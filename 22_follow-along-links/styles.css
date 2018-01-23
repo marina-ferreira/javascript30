@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Kavivanar');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
+.menu {
+  margin-bottom: 50px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-family: 'Kavivanar', cursive;
+  font-size: 18px;
+  padding: 5px 10px;
+  position: relative;
+  margin-right: 20px;
+  color: #fff;
+  border-radius: 5px;
+  transition: all .7s;
+}
+
+.menu a:last-child {
+  margin-right: 0;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, .8);
+  color: #000;
+}
+
+.article {
+  min-width: 575px;;
+  width: 40vw;
+  background: rgba(255, 255, 255,.5);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-align: justify;
+}
+
+.article p {
+  margin-bottom: 15px;
+}
+
+.article p:last-child {
+  margin-bottom: 0;
+}
+
+.article a {
+  text-decoration: none;
+  color: #4243FF;
+  padding: 2px;
+  transition: all .7s;
+}
+
+.article a:hover {
+  background: rgba(255, 255, 255, .8);
+  border-radius: 5px;
+}
