@@ -31,12 +31,21 @@ header {
   font-family: 'Merienda One', cursive;
 }
 
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
 .controls {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 70%;
-  margin: 10px 0;
 }
 
 .controls select {
@@ -71,9 +80,9 @@ header {
 .text-to-voice textarea {
   width: 80%;
   height: 150px;
-  resize: none;
   margin-bottom: 10px;
   border-radius: 10px;
+  resize: none;
   border: none;
   outline: none;
   padding: 20px;
@@ -88,10 +97,10 @@ footer {
 footer .btn {
   width: 150px;
   height: 40px;
-  border: none;
   border-radius: 5px;
   background: #D8E140;
   outline: none;
+  border: none;
   font-family: 'Merienda One', cursive;
   font-size: 22px;
   color: #fff;

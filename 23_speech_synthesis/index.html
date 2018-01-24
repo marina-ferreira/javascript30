@@ -10,25 +10,25 @@
   <div class="text-to-voice">
     <header><h1>Text-to-Voice</h1></header>
 
-    <div class="controls">
-      <select class="voice" name="voice">
-        <option value="">Option</option>
-      </select>
+    <form class="" action="index.html" method="post">
+      <div class="controls">
+        <select class="voices" name="voices">
+          <option value="">Select a voice</option>
+        </select>
 
-      <label>Rate: <input type="range" name="rate" value="Rate"></label>
+        <label>Rate: <input type="range" name="rate" value="Rate"></label>
+        <label>Pitch: <input type="range" name="pitch" value="Pitch"></label>
+      </div>
 
+      <textarea name="text"></textarea>
 
-      <label>Pitch: <input type="range" name="pitch" value="Pitch"></label>
-
-    </div>
-
-    <textarea name="text"></textarea>
-
-    <footer>
-      <input class="btn" type="button" name="start" value="Start">
-      <input class="btn" type="button" name="stop" value="Stop">
-    </footer>
+      <footer>
+        <input class="btn pause" type="button" name="pause" value="Pause">
+        <input class="btn start" type="submit" name="start" value="Start">
+      </footer>
+    </form>
   </div>
+
   <script src="./scripts.js"></script>
 </body>
 </html>
