@@ -20,10 +20,14 @@ function speak(e) {
   e.preventDefault();
 
   let textarea = document.querySelector('textarea'),
+      pitch = document.querySelector('input[name="pitch"]'),
+      rate = document.querySelector('input[name="rate"]'),
       text = new SpeechSynthesisUtterance(textarea.value),
       voiceName = select.selectedOptions[0].value;
 
   text.voice = voices.filter(voice => voice.name === voiceName)[0] || null;
+  text.pitch = pitch.value;
+  text.rate = rate.value;
   synth.cancel();
   synth.speak(text);
 }
