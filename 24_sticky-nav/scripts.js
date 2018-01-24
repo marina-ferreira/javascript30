@@ -3,6 +3,13 @@ let header = document.querySelector('header'),
 
 window.addEventListener('scroll', debounce(handleNav));
 
+function handleNav(e) {
+  let isAtTop = header.offsetHeight - menu.offsetHeight - window.scrollY < 0,
+      method = isAtTop ? 'add' : 'remove';
+
+  menu.classList[method]('fixed');
+}
+
 function debounce(laFonction, wait = 15, immediate = true) {
   let timeout;
 
@@ -22,15 +29,3 @@ function debounce(laFonction, wait = 15, immediate = true) {
     callNow && laFonction.apply(context, args);
   };
 };
-
-function handleNav(e) {
-  let hasReachedTop = header.offsetHeight - menu.offsetHeight - window.scrollY < 0;
-
-  if (hasReachedTop) {
-    menu.style.top = 0;
-    menu.style.position = 'fixed';
-  } else {
-    menu.style.top = 'auto';
-    menu.style.position = 'relative';
-  }
-}

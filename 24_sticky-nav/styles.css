@@ -24,13 +24,20 @@ header {
 
 header .menu {
   background: #387963;
+  top: auto;
+  position: relative;
   width: 100vw;
   height: 80px;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 3px 5px rgba(0,0,0,.2)
+  box-shadow: 0 3px 5px rgba(0,0,0,.1)
+}
+
+header .menu.fixed {
+  top: 0;
+  position: fixed;
 }
 
 header .menu a {
