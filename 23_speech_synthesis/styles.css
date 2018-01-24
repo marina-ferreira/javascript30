@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Merienda+One');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #FF7D9D;
+  background: url('./img/bg.png');
+}
+
+header,
+footer {
+  background: #AE439E;
+  padding: 30px;
+  width: 100%;
+  text-align: center;
+  height: 95px;
+}
+
+header {
+  border-radius: 10px 10px 0 0;
+  color: #611C57;
+  font-family: 'Merienda One', cursive;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.controls select {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+}
+
+.controls label {
+  margin-bottom: 10px;
+}
+
+.controls input {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.text-to-voice {
+  background: rgba(255, 255, 255, 0.7);
+  min-width: 400px;
+  height: 500px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.text-to-voice textarea {
+  width: 80%;
+  height: 150px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 20px;
+  font-size: 20px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  border-radius: 0 0 10px 10px;
+}
+
+footer .btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background: #D8E140;
+  outline: none;
+  border: none;
+  font-family: 'Merienda One', cursive;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+footer .btn:first-child {
+  margin-right: 20px;
+}
