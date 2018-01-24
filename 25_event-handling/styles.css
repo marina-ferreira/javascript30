@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  background: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+  height: 100vh;
+}
+
+.one,
+.two,
+.three {
+  display: flex;
+  margin: auto;
+}
+
+.one {
+  background: #860869;
+  width: 700px;
+  height: 50%;
+}
+
+.two {
+  background: #02D2CD;
+  width: 500px;
+  height: 60%;
+}
+
+.three {
+  background: #D20DA6;
+  width: 300px;
+  height: 40%;
+}
