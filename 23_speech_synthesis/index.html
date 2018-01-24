@@ -10,23 +10,21 @@
   <div class="text-to-voice">
     <header><h1>Text-to-Voice</h1></header>
 
-    <form class="" action="index.html" method="post">
-      <div class="controls">
-        <select class="voices" name="voices">
-          <option value="">Select a voice</option>
-        </select>
+    <div class="controls">
+      <select class="voices" name="voices">
+        <option value="">Select a voice</option>
+      </select>
 
-        <label>Rate: <input type="range" name="rate" value="1" min=0 max=5></label>
-        <label>Pitch: <input type="range" name="pitch" value="1" min=0 max=2 step=0.5></label>
-      </div>
+      <label>Rate: <input type="range" name="rate" value="1" min=0 max=5></label>
+      <label>Pitch: <input type="range" name="pitch" value="1" min=0 max=2 step=0.5></label>
+    </div>
 
-      <textarea name="text"></textarea>
+    <textarea name="text">Bonbon caramels jelly beans. Dessert wafer chocolate cake sugar plum marshmallow cake powder ice cream. 🌹</textarea>
 
-      <footer>
-        <input class="btn pause" type="button" name="pause" value="Pause">
-        <input class="btn start" type="submit" name="start" value="Start">
-      </footer>
-    </form>
+    <footer>
+      <input class="btn stop" type="button" name="stop" value="Stop">
+      <input class="btn start" type="button" name="start" value="Start">
+    </footer>
   </div>
 
   <script src="./scripts.js"></script>
