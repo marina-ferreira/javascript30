@@ -26,8 +26,7 @@ body {
 }
 
 .dropdown {
-  width: 200px;
-  height: 400px;
+  width: 300px;
   background: rgba(255,255,255,1);
   border-radius: 5px;
   position: relative;
@@ -37,7 +36,7 @@ body {
 
 .dropdown:before {
   content: '';
-  position: relative;
+  position: absolute;
   display: inline-block;
   top: -15px;
   left: 50%;
@@ -52,7 +51,18 @@ body {
   visibility: visible;
 }
 
-.items {
+.dropdown .submenu {
+  transition: all 2s;
+  visibility: hidden;
+}
+
+.submenu {
   visibility: hidden;
   position: absolute;
+  margin: auto;
+  padding: 30px;
+}
+
+.submenu li {
+  list-style: none;
 }
