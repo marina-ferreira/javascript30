@@ -1,15 +1,17 @@
-let links = document.querySelectorAll('.menu a');
-let dropdown = document.querySelector('.dropdown');
+let menu = document.querySelector('.menu'),
+    links = document.querySelectorAll('.menu a'),
+    dropdown = document.querySelector('.dropdown');
 
 function placeDropdown(e) {
-  if (!dropdown.classList.contains('active')) {
-    dropdown.style.left = `${this.offsetLeft + (this.offsetWidth / 2) - (dropdown.offsetWidth / 2)}px`;
-    dropdown.classList.add('active');
-    return;
-  }
+  let isActive = dropdown.classList.contains('active'),
+      styleProperty = isActive ? 'all' : 'opacity',
+      offsetX = this.offsetLeft + (this.offsetWidth - dropdown.offsetWidth) / 2;
 
-  dropdown.style.transform = `translateX(${this.offsetLeft + (this.offsetWidth / 2) - (dropdown.offsetWidth / 2)}px)`;
+  !isActive && dropdown.classList.add('active');
+
+  dropdown.style.transform = `translateX(${offsetX}px)`;
+  dropdown.style.transition = `${styleProperty} .2s ease-in-out`;
 }
 
 links.forEach(link => link.addEventListener('mouseenter', placeDropdown));
-links.forEach(link => link.addEventListener('mouseleave', () => dropdown.classList.remove('active')));
+menu.addEventListener('mouseleave', () => dropdown.classList.remove('active'));
