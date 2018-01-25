@@ -1,6 +1,7 @@
 let menu = document.querySelector('.menu'),
     links = document.querySelectorAll('.menu a'),
-    dropdown = document.querySelector('.dropdown');
+    dropdown = document.querySelector('.dropdown'),
+    submenu = document.querySelector('.dropdown .submenu');
 
 function placeDropdown(e) {
   let isActive = dropdown.classList.contains('active'),
@@ -15,20 +16,14 @@ function placeDropdown(e) {
 }
 
 function populateDropdown() {
-  let content = document.querySelector(`.submenu.${this.dataset.name}`),
-      contentHeight = content.getBoundingClientRect().height,
-      clone = content.cloneNode(true);
+  submenu.style.visibility = 'hidden';
+  submenu = document.querySelector(`.dropdown .submenu.${this.dataset.name}`);
 
-  dropdown.style.height = `${contentHeight}px`;
-  dropdown.innerHTML = '';
-  dropdown.append(clone);
+  let submenuHeight = submenu.getBoundingClientRect().height;
 
-  clone.style.visibility = 'visible';
-}
-
-function removeDropdown() {
-  dropdown.classList.remove('active');
+  dropdown.style.height = `${submenuHeight}px`;
+  submenu.style.visibility = 'visible';
 }
 
 links.forEach(link => link.addEventListener('mouseenter', placeDropdown));
-menu.addEventListener('mouseleave', removeDropdown);
+menu.addEventListener('mouseleave', () => dropdown.classList.remove('active'));

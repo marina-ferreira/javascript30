@@ -52,17 +52,10 @@ body {
 }
 
 .dropdown .submenu {
-  transition: all 2s;
-  visibility: hidden;
-}
-
-.submenu {
   visibility: hidden;
   position: absolute;
-  margin: auto;
-  padding: 30px;
 }
 
-.submenu li {
+.dropdown .submenu li {
   list-style: none;
 }
