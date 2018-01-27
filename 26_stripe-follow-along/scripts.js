@@ -12,18 +12,24 @@ function placeDropdown(e) {
   populateDropdown.call(this);
 
   dropdown.style.transform = `translateX(${offsetX}px)`;
-  dropdown.style.transition = `${styleProperty} .2s ease-in-out`;
+  dropdown.style.transition = `${styleProperty} .4s ease-in-out`;
+  submenu.style.transition = 'opacity .2s ease-in-out';
 }
 
 function populateDropdown() {
-  submenu.style.visibility = 'hidden';
+  submenu.style.opacity = 0;
   submenu = document.querySelector(`.dropdown .submenu.${this.dataset.name}`);
 
   let submenuHeight = submenu.getBoundingClientRect().height;
 
   dropdown.style.height = `${submenuHeight}px`;
-  submenu.style.visibility = 'visible';
+  submenu.style.opacity = 1;
+}
+
+function removeDropdown() {
+  submenu.style.transition = 'opacity 0s';
+  dropdown.classList.remove('active');
 }
 
 links.forEach(link => link.addEventListener('mouseenter', placeDropdown));
-menu.addEventListener('mouseleave', () => dropdown.classList.remove('active'));
+menu.addEventListener('mouseleave', removeDropdown);

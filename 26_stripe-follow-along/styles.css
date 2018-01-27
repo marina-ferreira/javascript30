@@ -52,8 +52,10 @@ body {
 }
 
 .dropdown .submenu {
-  visibility: hidden;
+  transition: all .2s;
+  opacity: 0;
   position: absolute;
+  padding: 30px;
 }
 
 .dropdown .submenu li {
