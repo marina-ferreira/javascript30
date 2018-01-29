@@ -22,7 +22,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   height: 100%;
 }
 
@@ -60,6 +59,28 @@ body {
 
 .dropdown.dropdown1 {
   max-width: 360px;
+}
+
+.dropdown li {
+  margin: 10px 0;
+}
+
+li .icon {
+  margin-right: 10px;
+  height: 100%;
+}
+
+.about {
+  text-align: center;
+}
+
+.about img {
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+.about p {
+  width: 350px;
 }
 
 .trigger-enter .dropdown {
