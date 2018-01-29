@@ -1,35 +1,33 @@
-let menu = document.querySelector('.menu'),
-    links = document.querySelectorAll('.menu a'),
-    dropdown = document.querySelector('.dropdown'),
-    submenu = document.querySelector('.dropdown .submenu');
+let menu = document.querySelector('.main-menu'),
+    triggers = document.querySelectorAll('.menu-list > li'),
+    dropdownBackground = document.querySelector('.dropdownBackground');
 
-function placeDropdown(e) {
-  let isActive = dropdown.classList.contains('active'),
-      styleProperty = isActive ? 'all' : 'opacity',
-      offsetX = this.offsetLeft + (this.offsetWidth - dropdown.offsetWidth) / 2;
+function handleEnter() {
+  this.classList.add('trigger-enter');
+  setTimeout(() => this.classList.contains('trigger-enter') &&
+                   this.classList.add('trigger-enter-active'), 150);
+  dropdownBackground.classList.add('open');
 
-  !isActive && dropdown.classList.add('active');
-  populateDropdown.call(this);
+  let dropdown = this.querySelector('.dropdown');
+  let dropdownCoords = dropdown.getBoundingClientRect();
+  let navCoords = menu.getBoundingClientRect();
+  let coords = {
+    width: dropdownCoords.width,
+    height: dropdownCoords.height,
+    top: dropdownCoords.top - navCoords.top,
+    left: dropdownCoords.left
+  }
 
-  dropdown.style.transform = `translateX(${offsetX}px)`;
-  dropdown.style.transition = `${styleProperty} .4s ease-in-out`;
-  submenu.style.transition = 'opacity .2s ease-in-out';
+  dropdownBackground.style.setProperty('width', `${coords.width}px`);
+  dropdownBackground.style.setProperty('height', `${coords.height}px`);
+  dropdownBackground.style.setProperty('top', `${coords.top}px`);
+  dropdownBackground.style.setProperty('left', `${coords.left}px`);
 }
 
-function populateDropdown() {
-  submenu.style.opacity = 0;
-  submenu = document.querySelector(`.dropdown .submenu.${this.dataset.name}`);
-
-  let submenuHeight = submenu.getBoundingClientRect().height;
-
-  dropdown.style.height = `${submenuHeight}px`;
-  submenu.style.opacity = 1;
+function handleLeave() {
+  this.classList.remove('trigger-enter', 'trigger-enter-active');
+  dropdownBackground.classList.remove('open');
 }
 
-function removeDropdown() {
-  submenu.style.transition = 'opacity 0s';
-  dropdown.classList.remove('active');
-}
-
-links.forEach(link => link.addEventListener('mouseenter', placeDropdown));
-menu.addEventListener('mouseleave', removeDropdown);
+triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
