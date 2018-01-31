@@ -3,39 +3,54 @@ const buttons = document.querySelectorAll('.controls button'),
       clock = document.querySelector('.clock'),
       backAt = document.querySelector('.back-at');
 
-let time = new Date(),
-    isSet = false;
+let timer;
 
-function setCountdown() {
-  let now = new Date();
-  isSet = true;
+function startTimer(seconds) {
+  clearInterval(timer);
 
-  time.setHours(0,0,0,0);
-  time.setSeconds(this.value);
+  let now = Date.now(),
+      then = now + (seconds * 1000);
 
-  clock.textContent = `${formatTime(time)}`;
+  displayTimeLeft(seconds);
+  displayBackAt(then);
 
-  now.setSeconds(this.value);
-  backAt.textContent = `Back at ${formatTime(now, true)}`;
+  timer = setInterval(() => {
+    let secsLeft = Math.round((then - Date.now()) / 1000);
+
+    if (secsLeft < 0) {
+      clearInterval(timer);
+      return;
+    }
+
+    displayTimeLeft(secsLeft);
+  }, 1000);
 }
 
-function countdown() {
-  if (!isSet) return;
-  if (time.getMinutes() === '00' && time.getSeconds() === '00') return;
+function displayTimeLeft(secsLeft) {
+  let minutes = Math.floor(secsLeft / 60),
+      secs = secsLeft % 60;
 
-  time.setSeconds(time.getSeconds() - 1);
-  clock.textContent = formatTime(time);
+  clock.textContent = `${formatTime(minutes)}:${formatTime(secs)}`;
 }
 
-function formatTime(time, hour = false) {
-  let hours = time.getHours().toString().length === 1 ? '0' + time.getHours() : time.getHours(),
-      minutes = time.getMinutes().toString().length === 1 ? '0' + time.getMinutes() : time.getMinutes(),
-      seconds = time.getSeconds().toString().length === 1 ? '0' + time.getSeconds() : time.getSeconds();
+function displayBackAt(then) {
+  let end = new Date(then),
+      hours = end.getHours(),
+      minutes = end.getMinutes();
 
-  return hour ? `${hours}:${minutes}` : `${minutes}:${seconds}`;
+  backAt.textContent = `Back at ${formatTime(hours)}:${formatTime(minutes)}`;
 }
 
-buttons.forEach(button => button.addEventListener('click', setCountdown));
-enterTime.addEventListener('keyup', setCountdown);
+function formatTime(time) {
+  return `${time < 10 ? '0' : ''}${time}`;
+}
 
-setInterval(countdown, 1000);
+function setSeconds(e) {
+  let value = parseInt(this.value),
+      secs = e.type === 'click' ? value : value * 60;
+
+  startTimer(secs);
+}
+
+buttons.forEach(button => button.addEventListener('click', setSeconds));
+enterTime.addEventListener('keyup', setSeconds);
