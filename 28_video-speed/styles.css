@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Erica+One');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+video {
+  object-fit: fill;
+}
+
+.speed {
+  width: 50px;
+  height: 350px;
+  background: #fff;
+  margin-left: 30px;
+  border-radius: 20px;
+}
+
+.speed-value {
+  height: 25%;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
+
+  background: linear-gradient(to right, #33001b, #ff0084);
+
+}
