@@ -1,25 +1,25 @@
-const panels = document.querySelectorAll('.panel'),
-      slider = document.querySelector('.panels');
-
+const slider = document.querySelector('.panels');
 let isMouseDown = false,
-    posX;
+    startX;
 
 function handleMouseDown(e) {
   isMouseDown = true;
-  posX = e.pageX - slider.offsetLeft;
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+
 }
 
 function handleScroll(e) {
   if (!isMouseDown) return;
 
   let currPosX = e.pageX - slider.offsetLeft,
-      scrollX = currPosX - posX;
+      scrollX = (currPosX - startX) * 2;
 
-  this.parentElement.scrollLeft -= scrollX;
-  posX = currPosX;
+  this.scrollLeft -= scrollX;
+  startX = currPosX;
 }
 
-panels.forEach(panel => panel.addEventListener('mousemove', handleScroll));
-panels.forEach(panel => panel.addEventListener('mousedown', handleMouseDown));
-panels.forEach(panel => panel.addEventListener('mouseup', () => isMouseDown = false));
+slider.addEventListener('mousemove', handleScroll);
+slider.addEventListener('mousedown', handleMouseDown);
+slider.addEventListener('mouseup', () => isMouseDown = false);
 slider.addEventListener('mouseleave', () => isMouseDown = false);
