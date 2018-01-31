@@ -18,7 +18,7 @@ video {
   object-fit: fill;
 }
 
-.speed-control {
+.speed {
   width: 50px;
   height: 350px;
   background: #fff;
@@ -27,11 +27,13 @@ video {
   overflow: hidden;
 }
 
-.speed-value {
+.speed-bar {
   height: 71.45px;
   width: 100%;
-  color: #fff;
+  color: #c5c5c5;
   text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1),
+               -1px 1px 1px rgba(0, 0, 0, 0.1);
   user-select: none;
   padding-top: 25px;
   background: linear-gradient(to right, #33001b, #ff0084);

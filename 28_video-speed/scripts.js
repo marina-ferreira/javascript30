@@ -1,30 +1,29 @@
-const speedContainer = document.querySelector('.speed-control'),
-      speed = document.querySelector('.speed-value'),
+const speed = document.querySelector('.speed'),
+      bar = document.querySelector('.speed-bar'),
       video = document.querySelector('video'),
 
-      minRate = 0.5,
-      maxRate = 4,
-      speedPadding = parseInt(window.getComputedStyle(speed).paddingTop),
-      containerHeight = speedContainer.offsetHeight - speedPadding;
+      min = 0.5,
+      max = 4,
+      padding = parseInt(window.getComputedStyle(bar).paddingTop),
+      bgHeight = speed.offsetHeight - padding;
 
 let isMouseDown = false;
 
 function setSpeed(e) {
   if (!isMouseDown) return;
 
-  let height = e.offsetY  - speedPadding;
-      playbackRate = height * (maxRate - minRate) / containerHeight + minRate;
+  let playbackRate = e.offsetY * (max - min) / bgHeight + min;
 
-  speed.style.setProperty('height', `${e.offsetY}px`);
-  speed.textContent = playbackRate.toFixed(1);
+  bar.style.height = e.offsetY + 'px';
+  bar.textContent = playbackRate.toFixed(1);
   video.playbackRate = playbackRate;
 }
+
+bar.addEventListener('mousemove', setSpeed);
+bar.addEventListener('mousedown', () =>   isMouseDown = true);
+bar.addEventListener('mouseup', () => isMouseDown = false);
 
 speed.addEventListener('mousemove', setSpeed);
 speed.addEventListener('mousedown', () =>   isMouseDown = true);
 speed.addEventListener('mouseup', () => isMouseDown = false);
-
-speedContainer.addEventListener('mousemove', setSpeed);
-speedContainer.addEventListener('mousedown', () =>   isMouseDown = true);
-speedContainer.addEventListener('mouseup', () => isMouseDown = false);
-speedContainer.addEventListener('mouseleave', () => isMouseDown = false);
+speed.addEventListener('mouseleave', () => isMouseDown = false);
