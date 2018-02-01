@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(160deg, rgb(143, 22, 237), rgb(27, 141, 15));
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: auto;
+}
+
+.game {
+  width: 750px;
+  height: 70vh;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hole {
+  flex: 1;
+  min-width: 200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hole img {
+  object-fit: contain;
+}
+
+.grass {
+  display: flex;
+}
+
+.grass img {
+  width: 120px;
+}
+
+.grass img:first-of-type {
+  transform: translate(90px, 5px);
+}
+
+.grass img:last-of-type {
+  transform: translate(-100px, 5px);
+}
+
+.mole {
+  width: 150px;
+  transform: translateY(140px);
+}
