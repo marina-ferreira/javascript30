@@ -15,14 +15,14 @@ body {
   justify-content: space-between;
 }
 
-header {
+.main-header {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 250px;
 }
 
-h1 {
+.title {
   width: 320px;
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 48px;
