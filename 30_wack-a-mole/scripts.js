@@ -3,7 +3,7 @@ const start = document.querySelector('.controls button[name="start"]'),
       timer = document.querySelector('.timer'),
       score = document.querySelector('.controls .score span');
 
-let playTime, countdown;
+let playTime, countdown, lastIndex;
 
 function startGame() {
   playTime = 10;
@@ -24,12 +24,8 @@ function startGame() {
 }
 
 function showMoles() {
-  let moleMax = moles.length,
-      standMin = 0.5,
-      standMax = 1.5,
-      randomMole = Math.floor(Math.random() * moleMax),
-      randomStand = (Math.random() * (standMax - standMin) + standMin).toFixed(2) * 1000,
-      mole = moles[randomMole];
+  let mole = randomMole(moles.length),
+      time = randomTime(0.5, 1.5);
 
   mole.style.transform = 'translateY(0)';
   mole.style.opacity = 1;
@@ -37,7 +33,7 @@ function showMoles() {
   setTimeout(() => {
     mole.style.transform = 'translateY(140px)';
     mole.style.opacity = 0;
-  }, randomStand);
+  }, time);
 }
 
 function scorePoints() {
@@ -45,6 +41,20 @@ function scorePoints() {
 
   this.style.transform = 'translateY(140px)';
   this.style.opacity = 0;
+}
+
+function randomTime(min, max) {
+  return (Math.random() * (max - min) + min).toFixed(2) * 1000;
+}
+
+function randomMole(molesCount) {
+  let index = Math.floor(Math.random() * molesCount),
+      mole = moles[index];
+
+  if (index === lastIndex) return randomMole(molesCount);
+  lastIndex = index;
+
+  return mole;
 }
 
 start.addEventListener('click', startGame);
