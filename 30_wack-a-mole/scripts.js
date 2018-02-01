@@ -1,50 +1,57 @@
 const start = document.querySelector('.controls button[name="start"]'),
       moles = document.querySelectorAll('.mole'),
-      timer = document.querySelector('.timer'),
-      score = document.querySelector('.controls .score span');
+      scoreBoard = document.querySelector('.controls .score span');
 
-let playTime, countdown, lastIndex;
+let playTime, interval, lastIndex;
+let score = 0;
 
 function startGame() {
   playTime = 10;
-  score.textContent = 0;
-  clearInterval(countdown);
+  scoreBoard.textContent = 0;
+  score = 0;
 
-  countdown = setInterval(() => {
+  clearInterval(interval);
+  countdown();
+
+  showMole();
+}
+
+function showMole() {
+  let mole = randomMole(moles.length),
+      time = randomTime(500, 1500);
+
+  mole.classList.add('out');
+
+  setTimeout(() => {
+    mole.classList.remove('out');
+
+    if (playTime > 0) showMole();
+  }, time);
+}
+
+function scorePoint() {
+  score++;
+  scoreBoard.textContent = score;
+
+  this.classList.remove('out');
+}
+
+function countdown() {
+  const timer = document.querySelector('.timer');
+
+  interval = setInterval(() => {
     if (playTime < 0) {
-      clearInterval(countdown);
+      clearInterval(interval);
       return;
     }
 
     timer.textContent = playTime;
     playTime--;
-
-    showMoles();
   }, 1000);
 }
 
-function showMoles() {
-  let mole = randomMole(moles.length),
-      time = randomTime(0.5, 1.5);
-
-  mole.style.transform = 'translateY(0)';
-  mole.style.opacity = 1;
-
-  setTimeout(() => {
-    mole.style.transform = 'translateY(140px)';
-    mole.style.opacity = 0;
-  }, time);
-}
-
-function scorePoints() {
-  score.textContent = parseInt(score.textContent) + 1;
-
-  this.style.transform = 'translateY(140px)';
-  this.style.opacity = 0;
-}
-
 function randomTime(min, max) {
-  return (Math.random() * (max - min) + min).toFixed(2) * 1000;
+  return Math.round(Math.random() * (max - min) + min);
 }
 
 function randomMole(molesCount) {
@@ -58,4 +65,4 @@ function randomMole(molesCount) {
 }
 
 start.addEventListener('click', startGame);
-moles.forEach(mole => mole.addEventListener('click', scorePoints));
+moles.forEach(mole => mole.addEventListener('click', scorePoint));

@@ -121,3 +121,8 @@ body {
   transform: translateY(140px);
   transition: all .3s ease-in-out;
 }
+
+.mole.out {
+  transform: translateY(0);
+  opacity: 1;
+}
