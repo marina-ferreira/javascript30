@@ -3,3 +3,69 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  height: 100vh;
+}
+
+.portfolio {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all .7s;
+  margin: auto;
+}
+
+.layer-group {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  transition: all .7s;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  display: none;
+  position: absolute;
+  transition: all .7s;
+}
+
+.layer:first-child {
+  display: block;
+}
+
+iframe {
+  width: 33.33%;
+  height: 50%;
+  border: none;
+}
+
+.control {
+  font-size: 60px;
+  position: absolute;
+  top: 50%;
+  border-radius: 5px;
+  width: 60px;
+  height: 200px;
+  padding: 60px 10px;
+  z-index: 10;
+}
+
+.control.prev {
+  left: 5px;
+  transform: translateY(-50%) rotate(180deg);
+  background: rgba(255, 255, 255, 0.5) url('./img/next.png') no-repeat 50%;
+}
+
+.control.next {
+  right: 5px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.5) url('./img/next.png') no-repeat 50%;
+}
