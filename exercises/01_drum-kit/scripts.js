@@ -1,22 +1,18 @@
-document.addEventListener('keydown', function(event) {
-  var key = toggleActive();
+function play(e) {
+  let key = document.querySelector(`[data-key="${e.keyCode}"]`),
+      fileName = key.childNodes[3].innerText,
+      audio = new Audio(`sounds/${fileName}.mp3`);
 
-  if (key) {
-    key.classList.add('active');
+  if (!key) return;
 
-    var fileName = key.childNodes[3].innerText;
-    var audio = new Audio('sounds/' + fileName + '.mp3');
-    audio.play();
-  }
-});
-
-document.addEventListener('keyup', function(event) {
-  toggleActive();
-});
-
-function toggleActive() {
-  var key = document.querySelector("[data-key='" + event.keyCode + "']");
-
-  key && key.classList.toggle('active');
-  return key;
+  key.classList.add('active');
+  audio.play();
 }
+
+function removeActive(e) {
+  let key = document.querySelector(`[data-key="${e.keyCode}"]`);
+  key && key.classList.remove('active');
+}
+
+document.addEventListener('keydown', play);
+document.addEventListener('keyup', removeActive);
