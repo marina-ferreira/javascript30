@@ -1,20 +1,23 @@
-body {
-  overflow: hidden;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.container {
-  width: 100vw;
+body {
   height: 100vh;
   background: url('./bg.jpg');
   background-size: cover;
   background-position-y: bottom;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .keys {
+  width: 70vw;
+  margin: auto;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .key {
@@ -22,18 +25,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70px;
-  height: 70px;
+  min-width: 70px;
+  min-height: 70px;
   background: rgba(0, 0, 0, .6);
-  margin-right: 15px;
+  margin: 5px 7.5px;
   color: #fff;
   font-size: 27px;
   border: 3px solid #000;
   transition: background .07s ease-in-out;
-}
-
-.key:last-child {
-  margin-right: 0;
 }
 
 .key.active {
@@ -41,7 +40,7 @@ body {
   transition: background .07s ease-in-out;
 }
 
-.key span {
+.key .name {
   font-size: 14px;
   color: #ff0;
 }

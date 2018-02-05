@@ -35,11 +35,11 @@ body {
   display: none;
   position: absolute;
   transition: all .7s;
+  background: purple;
 }
 
 .layer:first-child {
   display: block;
-  background: purple;
 }
 
 iframe {
