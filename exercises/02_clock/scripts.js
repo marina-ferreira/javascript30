@@ -1,16 +1,16 @@
 function setClock() {
-  var hoursHand = document.querySelector('.hours');
-  var minutesHand = document.querySelector('.minutes');
-  var secondsHand = document.querySelector('.seconds');
+  const hoursHand = document.querySelector('.hours'),
+        minutesHand = document.querySelector('.minutes'),
+        secondsHand = document.querySelector('.seconds');
 
-  var now = new Date();
-  var seconds = now.getSeconds();
-  var minutes = now.getMinutes();
-  var hours = now.getHours();
+  let now = new Date(),
+      seconds = now.getSeconds(),
+      minutes = now.getMinutes(),
+      hours = now.getHours(),
 
-  var hoursAngle = (360 * hours) / 12;
-  var minutesAngle = (360 * minutes) / 60;
-  var secondsAngle = (360 * seconds) / 60;
+      hoursAngle = (360 * hours) / 12,
+      minutesAngle = (360 * minutes) / 60,
+      secondsAngle = (360 * seconds) / 60;
 
   hoursHand.style.transform = `rotate(${hoursAngle}deg) translate(0, -50%)`;
   minutesHand.style.transform = `rotate(${minutesAngle}deg) translate(0, -50%)`;
