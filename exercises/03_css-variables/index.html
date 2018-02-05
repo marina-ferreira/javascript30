@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>CSS Variables</title>
+<head>
+  <meta charset="utf-8">
+  <title>CSS Variables</title>
 
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./scripts.js"></script>
-  </head>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./scripts.js"></script>
+</head>
+<body>
+  <h1 class="title">Update CSS variables with <span class="hl">JS</span></h1>
 
-  <body>
-    <h1 class="title">Update CSS variables with <span>JS</span></h1>
-
+  <div class="container">
     <div class="controls">
-      <label for="spacing">Spacing:</label>
-      <input type="range" id="spacing" value="20">
+      <div class="ranges">
+        <label for="spacing">Spacing:</label>
+        <input type="range" id="spacing" value="20" min=0 max=35>
 
-      <label for="blur">Blur:</label>
-      <input type="range" id="blur" value="0">
+        <label for="blur">Blur:</label>
+        <input type="range" id="blur" value="0">
+      </div>
 
-      <label for="color">Color:</label>
-      <input type="color" id="color" value="#FFC107">
+      <div class="color">
+        <label for="color">Color:</label>
+        <input type="color" id="color" value="#FFC107">
+      </div>
     </div>
 
-    <img src="http://lorempixel.com/400/200/nature/">
-  </body>
+    <img src="https://source.unsplash.com/p7mo8-CG5Gs/400x300">
+  </div>
+</body>
 </html>
