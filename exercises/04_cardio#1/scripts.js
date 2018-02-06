@@ -20,28 +20,36 @@ const inventors = [
 
 const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
 
+console.log('=========================================================================');
+console.log('=============================== Cardio #1 ===============================');
+
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 var bornInTheFifteen = inventors.filter(inventor => inventor.year > 1499 && inventor.year < 1600);
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #1 - filter() <<<<<<<<<<<<<<<<<<<<<<<<<');
 console.table(bornInTheFifteen);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors' first and last names
 var names = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #2 - map() <<<<<<<<<<<<<<<<<<<<<<<<<');
 console.table(names);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
 var sortByBirthday = inventors.sort((a, b) => a.year - b.year);
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #3 - sort() <<<<<<<<<<<<<<<<<<<<<<<<<');
 console.table(sortByBirthday);
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
 var sumAge = inventors.reduce((acc, currVal) => acc + currVal.passed - currVal.year, 0);
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #4 - reduce() <<<<<<<<<<<<<<<<<<<<<<<<<');
 console.log(sumAge);
 
 // 5. Sort the inventors by years lived
 var sortByYearsLived = inventors.sort((a, b) => (a.passed - a.year) - (b.passed - b.year));
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #5 - sort() <<<<<<<<<<<<<<<<<<<<<<<<<');
 console.table(sortByYearsLived);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
@@ -57,6 +65,7 @@ var sortByLastName = people.sort((personA, personB) => {
 
   return lastNameA < lastNameB ? -1 : 1;
 });
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #6 - sort() <<<<<<<<<<<<<<<<<<<<<<<<<');
 console.table(sortByLastName);
 
 // 8. Reduce Exercise
@@ -68,4 +77,8 @@ var wordCount = data.reduce((occurrences, word) => {
 
   return occurrences;
 }, {});
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #7 - reduce() <<<<<<<<<<<<<<<<<<<<<<<<<');
 console.log(wordCount);
+
+console.log('=============================== End of Cardio #1 ===============================');
+console.log('================================================================================');
