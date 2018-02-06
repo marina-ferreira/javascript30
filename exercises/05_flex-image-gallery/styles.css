@@ -72,17 +72,25 @@ body {
 .panel.details-active > *:last-child { transform: translateY(0); }
 
 .panel.one {
-  background: #463785 url('http://lorempixel.com/1000/1000/nightlife/');
+  background: #463785 url('https://source.unsplash.com/5pXwpRw6O8c/1000x1000');
+  background-position: -100px 0;
 }
 .panel.two {
-  background: #124559 url('http://lorempixel.com/1000/1000/abstract/');
+  background: #124559 url('https://source.unsplash.com/nIkuMWT4Imc/800x800');
+  background-position: center;
 }
+
 .panel.three {
-  background: #4A1942 url('http://lorempixel.com/1000/1000/animals/');
+  background: #4A1942 url('https://source.unsplash.com/4rDCa5hBlCs/1000x1000');
+  background-position: center;
 }
+
 .panel.four {
-  background: #598392 url('http://lorempixel.com/1000/1000/people/');
+  background: #598392 url('https://source.unsplash.com/1DGD2_CKCbo/800x900');
+  background-position: center;
 }
+
 .panel.five {
-  background: #893168 url('http://lorempixel.com/1000/1000/nature/');
+  background: #893168 url('https://source.unsplash.com/45bI5ezo3gE/800x1000');
+  background-position: center;
 }
