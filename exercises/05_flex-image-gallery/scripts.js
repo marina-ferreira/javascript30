@@ -1,14 +1,18 @@
 const panels = document.querySelectorAll('.panel');
 
 function togglePanel(e) {
-  this.classList.toggle('open');
-}
+  const delay = 300;
+  let isOpen = this.classList.contains('open');
 
-function slideDetails(e) {
-  if (e.propertyName.includes('flex')) {
-    this.classList.toggle('details-active');
+  if (isOpen) {
+    this.classList.remove('active');
+    setTimeout(() => this.classList.remove('open'), delay);
+
+    return;
   }
+
+  this.classList.add('open');
+  setTimeout(() => this.classList.add('active'), delay);
 }
 
 panels.forEach(panel => panel.addEventListener('click', togglePanel));
-panels.forEach(panel => panel.addEventListener('transitionend', slideDetails));
