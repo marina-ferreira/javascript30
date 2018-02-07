@@ -33,7 +33,7 @@ body {
   font-size: 20px;
   text-align: center;
   letter-spacing: 1.5px;
-  transform: rotate(-40deg);
+  transform: rotate(-20deg);
   border: 10px double #000;
   background: rgba(0, 0, 0, 0.5);
   text-shadow: 1px 1px 1px rgba(0,0,0,.4);
@@ -103,6 +103,7 @@ body {
     font-size: 10px;
     background: transparent;
     border: none;
+    transform: rotate(-40deg);
   }
 
   .panel {

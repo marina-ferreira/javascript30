@@ -15,6 +15,10 @@ const comments = [
   { text: 'Nice Nice Nice!', id: 542328 }
 ];
 
+console.log('=========================================================================');
+console.log('=============================== Cardio #2 ===============================');
+console.log('');
+
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
 let anyOlderThan19 = people.some(person => {
@@ -22,7 +26,8 @@ let anyOlderThan19 = people.some(person => {
   return age > 18;
 });
 
-console.log(anyOlderThan19);
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #1 - some() <<<<<<<<<<<<<<<<<<<<<<<<<');
+console.log({anyOlderThan19});
 
 // Array.prototype.every() // is everyone 19 or older?
 let allOlderThan19 = people.every(person => {
@@ -30,17 +35,22 @@ let allOlderThan19 = people.every(person => {
   return age > 18;
 });
 
-console.log(allOlderThan19);
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #2 - every() <<<<<<<<<<<<<<<<<<<<<<<<<');
+console.log({allOlderThan19});
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
 let comment = comments.find(comment => comment.id === 823423);
-console.log(comment);
+
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #3 - find() <<<<<<<<<<<<<<<<<<<<<<<<<');
+console.log({comment});
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
 let commentIndex = comments.findIndex(comment => comment.id === 823423);
 comments.splice(commentIndex, 1);
-console.log(comments);
+
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> Exercise #4 - findIndex() <<<<<<<<<<<<<<<<<<<<<<<<<');
+console.log({comments});
