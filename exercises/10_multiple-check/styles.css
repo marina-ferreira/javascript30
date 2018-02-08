@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,14 +7,18 @@
 }
 
 body {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
   background: #00bcd4;
 }
 
-.container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.title {
+  color: #DB167C;
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .list {
@@ -46,7 +52,9 @@ body {
 }
 
 @media screen and (max-height: 500px) {
-  .list { height: 90vh; }
+  .title { font-size: 28px; }
+  .list { height: 70vh; }
+  .list .item:nth-child(7n+5),
   .list .item:nth-child(7n+6),
   .list .item:nth-child(7n+7) { display: none; }
   .list .item .item-description { font-size: 18px; }
