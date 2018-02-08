@@ -1,9 +1,10 @@
-let video = document.querySelector('.player__video');
-let seeker = document.querySelector('.progress');
-let seeker_filled = document.querySelector('.progress__filled');
-let playButton = document.querySelector('.player__button[data-control="play"]');
-let sliders = document.querySelectorAll('.player__slider');
-let skipButtons = document.querySelectorAll('.player__button[data-time]');
+const video = document.querySelector('.player__video'),
+      seeker = document.querySelector('.progress'),
+      seeker_filled = document.querySelector('.progress__filled'),
+      playButton = document.querySelector('.player__button[data-control="play"]'),
+      sliders = document.querySelectorAll('.player__slider'),
+      skipButtons = document.querySelectorAll('.player__button[data-time]');
+
 let isMouseDown = false;
 
 function handlePlay() {
