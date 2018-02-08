@@ -3,9 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <title>Console Tricks!</title>
+
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+  <h1 class="title">Dev Tools Tricks</h1>
+  <p class="reminder">Psst: have a look at the JavaScript Console 🌹</p>
+
+  <ul class="panel">
+    <li class="item">
+      <span class="method">Break on Modifiction</span>
+      <p class="description">If you know JS is triggering changes on an element, but don't know exactly where in the code the responsable snippet is, you can set a break point in the element directly. In the Elements tab, find the element and click the '...' to its right. Hover over 'Break on....' and select 'Atribute modifications'. When you trigger the behaviour, the code will stop at the first attribute change made on the elemeent.</p>
+
+      <span class="text pulse" onClick="shake()">Click Me!</span>
+    </li>
+    <li class="item">
+      <span class="method">Console</span>
+      <p class="description">The Console object provides access to the browser's debugging console (e.g. the Web Console in Firefox). The specifics of how it works varies from browser to browser, but there is a de facto set of features that are typically provided.</p>
+    </li>
+    <li class="item">
+      <span class="method">log()</span>
+      <p class="description">Outputs a message to the Web Console.</p>
+
+      <div class="code" contenteditable>
+    // Regular
+    console.log('Hello');
+    >> Hello
+
+    // Interpolated
+    let myVar = 'sit';
+
+    console.log('Lorem ipsum dolor %s amet', myVar);
+    >> Lorem ipsum dolor sit amet
+
+    console.log(`Lorem ipsum dolor ${myVar} amet`);
+    >> Lorem ipsum dolor sit amet
+
+    // Styled
+    console.log('%c Lorem ipsum dolor sit amet', 'font-size: 20px; background: green;');
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">warn()</span>
+      <p class="description">Outputs a warning message to the Web Console.</p>
+
+      <div class="code" contenteditable>
+    // warn and error return the stack trace
+    console.warn('This is a warning!');
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">error()</span>
+      <p class="description">Outputs an error message to the Web Console.</p>
+
+      <div class="code" contenteditable>
+    console.error('This is an error!');
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">info()</span>
+      <p class="description">Outputs an informational message to the Web Console. In Firefox and Chrome, a small "i" icon is displayed next to these items in the Web Console's log.</p>
+
+      <div class="code" contenteditable>
+    console.info('This is an info.');
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">assert()</span>
+      <p class="description">Writes an error message to the console if the assertion is false. If the assertion is true, nothing happens.</p>
+
+      <div class="code" contenteditable>
+
+    // this won't fire, cause the condition evaluates to true
+    console.assert(1 === 1, 'Not a match');
+    // this will fire
+    console.assert(1 === 3, 'Not a match');
+
+    let p = document.querySelector('p');
+    console.assert(p.classList.contains('class'), 'Not a match');
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">clear()</span>
+      <p class="description">Clears the console.</p>
+
+      <div class="code" contenteditable>
+    console.clear();
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">dir()</span>
+      <p class="description">Displays an interactive list of the properties of the specified JavaScript object. The output is presented as a hierarchical listing with disclosure triangles that let you see the contents of child objects.</p>
+
+      <div class="code" contenteditable>
+    let span = document.querySelector('soan');
+    console.dir(span);
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">group()</span>
+      <p class="description">Creates a new inline group in the Web Console log. This indents following console messages by an additional level, until console.groupEnd() is called.</p>
+
+      <div class="code" contenteditable>
+    let dogs = [
+      { name: 'Snickers', age: 2 },
+      { name: 'hugo', age: 8 }
+    ];
+
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.groupEnd(`${dog.name}`);
+    });
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">groupCollapsed()</span>
+      <p class="description">Creates a new inline group in the Web Console. Unlike console.group(), however, the new group is created collapsed. The user will need to use the disclosure button next to it to expand it, revealing the entries created in the group. Call console.groupEnd() to back out to the parent group.</p>
+
+      <div class="code" contenteditable>
+    let dogs = [
+      { name: 'Snickers', age: 2 },
+      { name: 'hugo', age: 8 }
+    ];
+
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">count()</span>
+      <p class="description">Logs the number of times that this particular call to count() has been called. This function takes an optional argument label.</p>
+
+      <div class="code" contenteditable>
+    console.count('Marina');
+    console.count('Marina');
+    console.count('Marina');
+    >> 3
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">time()</span>
+      <p class="description">Starts a timer you can use to track how long an operation takes. You give each timer a unique name, and may have up to 10,000 timers running on a given page. When you call console.timeEnd() with the same name, the browser will output the time, in milliseconds, that elapsed since the timer was started.</p>
+
+      <div class="code" contenteditable>
+    console.time('fetching data');
+
+    fetch('https://api.github.com/users/inBlackAndWhite')
+      .then(response => response.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">table()</span>
+      <p class="description">Displays tabular data as a table. This function takes one mandatory argument data, which must be an array or an object, and one additional optional parameter columns. It logs data as a table. Each element in the array (or enumerable property if data is an object) will be a row in the table. The first column in the table will be labeled (index). If data is an array, then its values will be the array indices. If data is an object, then its values will be the property names. </p>
+
+      <div class="code" contenteditable>
+    let dogs = [
+      { name: 'Snickers', age: 2 },
+      { name: 'hugo', age: 8 }
+    ];
+
+    console.table(dogs);
+      </div>
+    </li>
+  </ul>
 
   <script src="./scripts.js"></script>
 </body>

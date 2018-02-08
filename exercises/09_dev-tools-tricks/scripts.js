@@ -1,9 +1,10 @@
 const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
-function makeGreen() {
-  const p = document.querySelector('p');
-  p.style.color = '#BADA55';
-  p.style.fontSize = '50px';
+function shake() {
+  const p = document.querySelector('.text');
+
+  p.classList.remove('pulse');
+  p.classList.toggle('shake');
 }
 
 // Regular
