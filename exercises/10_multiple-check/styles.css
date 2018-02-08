@@ -15,32 +15,39 @@ body {
   align-items: center;
 }
 
-ul.list {
+.list {
   width: 390px;
-  height: 517px;
-  padding: 0 30px;
+  height: 70vh;
+  padding: 20px 30px;
   display: flex;
   flex-direction: column;
   background: #fafafa;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-ul.list .item {
+.list .item {
   list-style: none;
   flex: 1;
   display: flex;
   align-items: center;
 }
 
-ul.list .item .checkbox {
+.list .item .checkbox {
   flex: 1.5;
 }
 
-ul.list .item .checkbox:checked + .item-description {
+.list .item .checkbox:checked + .item-description {
   text-decoration: line-through;
 }
 
-ul.list .item .item-description {
+.list .item .item-description {
   flex: 6;
   font-size: 20px;
+}
+
+@media screen and (max-height: 500px) {
+  .list { height: 90vh; }
+  .list .item:nth-child(7n+6),
+  .list .item:nth-child(7n+7) { display: none; }
+  .list .item .item-description { font-size: 18px; }
 }
