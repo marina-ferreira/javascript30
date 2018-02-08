@@ -7,6 +7,11 @@ function shake() {
   p.classList.toggle('shake');
 }
 
+console.log('=============================== Dev Tools Tricks ===============================');
+console.log('=============================== Console Object ===============================');
+console.log('');
+
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> log() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // Regular
 console.log('Hello');
 
@@ -18,16 +23,20 @@ console.log(`Lorem ipsum dolor ${myVar} amet`);
 // Styled
 console.log('%c Lorem ipsum dolor sit amet', 'font-size: 20px; background: green;');
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> warn() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // warn and error return the stack trace
 // warning!
 console.warn('This is a warning!');
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> error() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // Error :|
 console.error('This is an error!');
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> info() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // Info
 console.info('This is an info.');
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> assert() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // Testing
 let p = document.querySelector('p');
 console.assert(1 === 1, 'Not a match'); // this won't fire, cause the condition evaluates to true
@@ -37,10 +46,12 @@ console.assert(p.classList.contains('class'), 'Not a match');
 // clearing
 // console.clear();
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> dir() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // Viewing DOM Elements
 console.log(p);
 console.dir(p);
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> groupCollapsed() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // Grouping together
 dogs.forEach(dog => {
   // console.group(`${dog.name}`);
@@ -51,11 +62,17 @@ dogs.forEach(dog => {
   console.groupEnd(`${dog.name}`);
 });
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> count() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // counting
 console.count('Marina');
 console.count('Marina');
 console.count('Marina');
 
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> table() <<<<<<<<<<<<<<<<<<<<<<<<<');
+// display array of objects
+console.table(dogs);
+
+console.log('>>>>>>>>>>>>>>>>>>>>>>>> time() <<<<<<<<<<<<<<<<<<<<<<<<<');
 // timing
 console.time('fetching data');
 fetch('https://api.github.com/users/inBlackAndWhite')
@@ -64,6 +81,3 @@ fetch('https://api.github.com/users/inBlackAndWhite')
     console.timeEnd('fetching data');
     console.log(data);
   });
-
-// display array of objects
-console.table(dogs);
