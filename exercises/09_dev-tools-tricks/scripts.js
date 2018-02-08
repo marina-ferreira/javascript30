@@ -7,8 +7,8 @@ function shake() {
   p.classList.toggle('shake');
 }
 
+console.log('');
 console.log('=============================== Dev Tools Tricks ===============================');
-console.log('=============================== Console Object ===============================');
 console.log('');
 
 console.log('>>>>>>>>>>>>>>>>>>>>>>>> log() <<<<<<<<<<<<<<<<<<<<<<<<<');
