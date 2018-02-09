@@ -3,95 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <title>JS Reference VS Copy</title>
+
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <h1 class="title">Reference VS Copy</h1>
+  <p class="reminder">Psst: have a look at the JavaScript Console 🌹</p>
 
-  <script>
-    // start with strings, numbers and booleans
-    let age = 100;
-    let age2 = age;
-    console.log({age, age2});
+  <ul class="panel">
+    <li class="item">
+      <span class="method">Numbers, Strings and Booleans</span>
+      <p class="description">In JavaScript, Primitive Types such as <em>undefined, null, string, number, boolean</em> and <em>symbol</em> are passed by value.</p>
 
-    age = 200;
-    console.log({age, age2});
-
-
+      <div class="code" contenteditable>
     let name = 'Marina';
     let name2 = name;
+
     console.log({name, name2});
+    >> { name: 'Marina', name2: 'Marina' }
 
-    name = 'Valentino';
+    name = 'Vinicius';
+
     console.log({name, name2});
+    >> { name: 'Vinicius', name2: 'Marina' }
+      </div>
 
-    /**
-     *************
-     ** Arrays
-     *************
-    **/
+      <img class="image" src="./img/by-value.png" alt="Primitive Types">
 
-    // Let's say we have an array
-    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+      <p class="description">When the variable <em>name</em> is assigned, a space in memory with an address of <em>0x001</em> is reserved to store that value. The variable <em>name</em> then points to that address.<br>
+      The variable <em>name2</em> is then set to equal <em>name</em>. A new space in memory, with a new address <em>0x002</em> is alocated and stores a copy of the value stored in the address <em>name</em> points to.<br>
+      So, whenever we want to modify the value of <em>name</em>, the value stored by <em>name2</em> won't be changed, since its a copy, stored in a different location.
+        </p>
+    </li>
+    <li class="item">
+      <span class="method">Objects and Arrays</span>
+      <p class="description">Objects in JavaScript are passed by reference. When more than one variable is set to store either an <em>object, array</em> or <em>function</em> those variables will point to the same alocated space in memory.</p>
 
-    // and we want to make a copy of it.
-    // You might think we can just do something like this:
-    let team = players;
-    console.log(players, team);
+      <div class="code" contenteditable>
+    const animals = ['Cat', 'Dog', 'Horse', 'Snake'];
 
-    // however what happens when we update that array?
-    team[3] = 'Marina';
-    console.log(players, team);
+    let animals2 = animals;
+    console.log({animals, animals2});
+    {
+      animals: ['Cat', 'Dog', 'Horse', 'Snake'],
+      animals2: ['Cat', 'Dog', 'Horse', 'Snake']
+    }
 
-    // now here is the problem: we have edited the original array too!
-    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
-    // So, how do we fix this? We take a copy instead!
-    // one way
-    let team2 = players.slice();
-    team2[3] = 'Marina';
-    console.log(players, team2);
+    animals2[3] = 'Wale';
+    console.log(animals, animals2);
+    {
+      animals: ['Cat', 'Dog', 'Horse', 'Wale'],
+      animals2: ['Cat', 'Dog', 'Horse', 'Wale']
+    }
+      </div>
 
-    // or create a new array and concat the old one in
-    let team3 = [].concat(players);
+      <img class="image" src="./img/by-reference.png" alt="Primitive Types">
 
-    // or use the new ES6 Spread
-    let team4 = [...players];
+      <p class="description">
+        When <em>animals</em> is set to store an array, memory is alocated and an address is associated to that variable. Then <em>animals2</em> is set to equal <em>animals</em>. Since <em>animals</em> stores an array, instead of creating a copy of that array and a new address in memory, <em>animals2</em> is simply pointed to the same object in the existing address. That way any changes made to <em>animals2</em> will reflect on <em>animals</em>, because they point to the same location.<br><br>
 
-    // now when we update it, the original one isn't changed
-    team4[2] = 'New Player';
-    console.log(players, team4);
+        Same behaviour for objects:
+      </p>
 
-    /**
-     *************
-     ** Objects
-     *************
-    **/
-
-    // The same thing goes for objects, let's say we have a person object
-    // with Objects
+      <div class="code" contenteditable>
     const person = {
-      name: 'Wes Bos',
-      age: 80
+      name: 'Marina',
+      age: 29
     };
 
-    // and think we make a copy:
-    let captain = person;
+    let femme = person;
 
-    captain.age = 99;
-    console.log(person, captain);
+    femme.age = 18;
+    console.log({person, femme});
+    {
+      person: { name: 'Marina', age: 18 },
+      femme: { name: 'Marina', age: 18 }
+    }
+      </div>
 
-    // how do we take a copy instead?
-    let captain2 = Object.assign({}, person, { age: 104 })
-    console.log(person, captain2);
 
-    // We will hopefully soon see the object ...spread
+    </li>
+    <li class="item">
+      <span class="method">Copying Objects and Arrays</span>
+      <p class="description">Since a simple assignment is not enough to produce a copy of an object, that can be achieved by other approaches:</p>
 
-    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+      <span class="method center">Arrays</span>
 
-    // deep clone - not best choice
-    let captain3 = JSON.parse(JSON.stringify(captain));
-    captain3.name = 'Marina';
-    console.log(person, captain3);
+      <span class="method sub">slice()</span>
+      <div class="code" contenteditable>
+    let animals2 = animals.slice();
+    animals2[3] = 'Shark';
+      </div>
 
-  </script>
+      <span class="method sub">concat()</span>
+      <div class="code" contenteditable>
+    let animals3 = [].concat(animals);
+    animals3[3] = 'Tiger';
+      </div>
 
+      <span class="method sub">spread (ES6)</span>
+      <div class="code bottom" contenteditable>
+    let animals4 = [...animals];
+    animals4[3] = 'Lion';
+      </div>
+
+      <p class="description">Changes will affect only the object modified:</p>
+
+      <div class="code bottom" contenteditable>
+    console.log({animals, animals2, animals3, animals4});
+    {
+      animals: ['Cat', 'Dog', 'Horse', 'Snake'],
+      animals2: ['Cat', 'Dog', 'Horse', 'Shark'],
+      animals3: ['Cat', 'Dog', 'Horse', 'Tiger'],
+      animals4: ['Cat', 'Dog', 'Horse', 'Lion']
+    }
+      </div>
+      <span class="method center">Objects</span>
+
+      <span class="method sub">assign()</span>
+      <div class="code" contenteditable>
+    let human = Object.assign({}, person, { age: 20 })
+    console.log(person, human);
+    {
+      person: { name: 'Marina', age: 29 },
+      femme: { name: 'Marina', age: 20 }
+    }
+      </div>
+
+      <span class="method sub">Deep Clone</span>
+      <p class="description">It's important to note that those methods are just one level deep. For deep clones there is a frowned upon method. Use carefully.</p>
+
+      <div class="code" contenteditable>
+    let femme3 = JSON.parse(JSON.stringify(person));
+    femme3.name = 'Leslie';
+    console.log(person, femme3);
+    {
+      person: { name: 'Marina', age: 29 },
+      femme3: { name: 'Leslie', age: 29 }
+    }
+      </div>
+    </li>
+
+    <li class="item">
+      <p class="method">References</p>
+      <p>D’Ascoli, C. (2017, July 07). <em>Javascript Passing by Value vs. Reference Explained in Plain English.</em> Retrieved from https://codeburst.io/javascript-passing-by-value-vs-reference-explained-in-plain-english-8d00fd06a47c</p>
+    </li>
+  </ul>
+
+
+  <script src="./scripts.js"></script>
 </body>
 </html>

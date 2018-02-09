@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Kaushan+Script');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(to right, #56ab2f, #a8e063);
+}
+
+.title {
+  color: #fff;
+  margin: 30px 0;
+  padding: 10px 20px;
+  border: 5px double #fff;
+}
+
+.reminder {
+  width: 17%;
+  min-width: 120px;
+  padding: 25px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  color: #fff;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  transform: rotate(-20deg);
+  border: 10px double #000;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+}
+
+.panel {
+  width: 55vw;
+  padding: 30px;
+  list-style: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.item {
+  margin: 0 auto 30px;
+  padding: 20px;
+  display: grid;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+}
+
+.item:last-of-type {
+  margin-bottom: 0;
+}
+
+.item .description {
+  margin-bottom: 30px;
+}
+
+.item .method {
+  color: #fff;
+  padding: 10px 20px;
+  display: inline-table;
+  margin-bottom: 30px;
+  border: 1px solid #fff;
+}
+
+.item .method.center {
+  margin: 0 auto 20px;
+  border: 3px double #fff;
+}
+
+.item .method.sub {
+  margin: 30px 0;
+}
+
+.item .code {
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  display: inline-block;
+  margin: 0 auto;
+  padding-right: 30px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+.item .code.bottom {
+  margin-bottom: 30px;
+}
+
+.item .image {
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  background: rgba(255,255,255,0.4);
+}
+
+@media screen and (min-width: 750px) and (max-width: 1100px) {
+  .reminder {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .panel {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .reminder {
+    width: 160px;
+    padding: 25px;
+    top: 20px;
+    left: -20px;
+    font-size: 11px;
+    background: transparent;
+    border: none;
+  }
+
+  .panel {
+    width: 100vw;
+    padding: 10px;
+    background: transparent;
+  }
+
+  .item {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .item .description {
+    padding: 0 20px;
+  }
+
+  .item .code {
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
