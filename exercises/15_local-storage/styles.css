@@ -88,3 +88,19 @@ body {
   color: #FFF;
   width: 78px;
 }
+
+@media screen and (max-height: 600px) {
+  .logo {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+
+  .menu {
+    max-height: 85vh;
+  }
+
+  .menu-list {
+    max-height: 120px;
+    overflow-y: scroll;
+  }
+}
