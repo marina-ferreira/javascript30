@@ -80,6 +80,7 @@ body {
 
 .item .description {
   margin-bottom: 30px;
+  text-align: justify;
 }
 
 .item .method {

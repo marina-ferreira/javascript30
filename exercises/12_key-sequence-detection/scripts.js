@@ -11,8 +11,7 @@ function detectKeySequence(e) {
   if (isAMatch) {
     let gif = document.querySelector('iframe');
 
-    angle = angle === 360 ? -360 : 360;
-    gif.style.cssText = `opacity: 1; visibility: visible; transform: rotate(${angle}deg)`;
+    gif.classList.add('show');
   }
 }
 
