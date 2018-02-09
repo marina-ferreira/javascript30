@@ -20,19 +20,25 @@ body {
   height: 100vh;
 }
 
-h1, h2 {
+.title, .subtitle {
   font-family: 'Luckiest Guy', cursive;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #fff;
+  text-align: center;
   text-shadow: var(--x) var(--y) 10px rgba(0, 0, 0, .5);
+}
+
+.title {
+  font-size: 60px;
   margin-bottom: 30px;
 }
 
-h1 {
-  font-size: 60px;
+.subtitle {
+  font-size: 40px;
 }
 
-h2 {
-  font-size: 40px;
+@media screen and (max-width: 500px) {
+  .title { font-size: 50px; }
+  .subtitle { font-size: 30px; }
 }
