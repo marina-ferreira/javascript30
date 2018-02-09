@@ -23,21 +23,19 @@ body {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
+.instruction {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
 #gif {
-  opacity: 0;
-  visibility: hidden;
+  display: none;
   border: none;
 }
 
 #gif.show {
-  opacity: 1;
-  visibility: visible;
+  display: block;
   animation: bounceDownIn 0.35s ease-in-out both;
-}
-
-.instruction {
-  font-family: 'Raleway', sans-serif;
-  font-size: 20px;
 }
 
 @keyframes bounceDownIn {
@@ -45,4 +43,9 @@ body {
   60%   { opacity: 1; transform: translateY(30px); }
   80%   { transform: translateY(-10px); }
   100%  { transform: translateY(0); }
+}
+
+@media screen and (max-width: 500px) {
+  .title { font-size: 30px; }
+  #gif { height: 50vh; }
 }
