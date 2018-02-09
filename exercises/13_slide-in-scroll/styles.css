@@ -11,33 +11,34 @@ body {
 }
 
 .article {
-  width: 50vw;
-  margin: 100px 0;
+  width: 720px;
+  margin: 20px 0;
   background: #FFF;
   padding: 50px 100px;
   text-align: justify;
   overflow: hidden;
 }
 
-.article .title {
+.title {
   font-size: 30px;
+  margin-bottom: 10px;
 }
 
-.article .subtitle {
+.subtitle {
   color: #c5c5c5;
   margin: 5px 0 70px;
   display: block;
 }
 
-.article section {
+.subsection {
   margin-bottom: 40px;
 }
 
-.article p:first-of-type {
+.paragraph:first-of-type {
   text-indent: 40px;
 }
 
-.article section img {
+.subsection .image {
   float: right;
   margin: 15px 0 10px 20px;
   left: 50%;
@@ -48,15 +49,30 @@ body {
   transition: all 0.4s cubic-bezier(0.42, 0, 0.74, 0.95);
 }
 
-.article section:nth-of-type(even) img {
+.subsection:nth-of-type(even) .image {
   float: left;
   margin: 15px 20px 10px 0;
   left: -50%;
 }
 
-.article section img.visible {
+.subsection .image.visible {
   visibility: visible;
   opacity: 1;
   left: 0;
   transform: scale(1);
+}
+
+@media screen and (max-width: 750px) {
+  .article {
+    width: 90vw;
+    padding: 50px 35px;
+  }
+
+  .title { font-size: 25px; }
+  .subtitle { font-size: 14px; }
+  .paragraph { font-size: 14px; }
+}
+
+@media screen and (max-width: 500px) {
+  .paragraph { font-size: 13px; }
 }
