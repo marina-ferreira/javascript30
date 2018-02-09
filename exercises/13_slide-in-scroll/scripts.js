@@ -1,4 +1,4 @@
-const images = document.querySelectorAll('.article section img');
+const images = document.querySelectorAll('.article .image');
 let isImageVisible = false;
 
 function debounce(func, wait = 20, immediate = true) {
@@ -22,7 +22,6 @@ function debounce(func, wait = 20, immediate = true) {
 function slideImages(e) {
   images.forEach(image => {
     let halfHeight = image.getClientRects()[0].top + image.height / 2;
-
     isImageVisible = halfHeight < window.innerHeight && halfHeight > 0;
 
     let method = isImageVisible ? 'add' : 'remove';
