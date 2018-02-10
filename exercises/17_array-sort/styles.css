@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|BioRhyme+Expanded:800');
 
 * {
   margin: 0;
@@ -12,19 +12,28 @@ body {
   background-position-x: center;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  color: #55D1B8;
+  font-family: 'BioRhyme Expanded', serif;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .band-list {
-  background: #FFF;
-  opacity: .7;
-  padding: 40px 60px;
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
   width: 420px;
+  height:  90vh;
+  padding: 25px 60px;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
+  opacity: .7;
+  overflow-y: scroll;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 }
 
 .band-list .band {
@@ -42,4 +51,8 @@ body {
   content: '●';
   color: #d18639;
   margin-right: 20px;
+}
+
+@media screen and (max-height: 550px) {
+  .band-list { height: 80vh; }
 }
