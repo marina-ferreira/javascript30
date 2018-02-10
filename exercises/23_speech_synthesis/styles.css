@@ -7,12 +7,11 @@
 }
 
 body {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #FF7D9D;
+  flex-direction: column;
   background: url('./img/bg.png');
 }
 
@@ -23,12 +22,20 @@ footer {
   width: 100%;
   text-align: center;
   height: 95px;
+  display: flex;
+  justify-content: center;
 }
 
 header {
   border-radius: 10px 10px 0 0;
   color: #611C57;
   font-family: 'Merienda One', cursive;
+}
+
+footer {
+  position: relative;
+  top: 1px;
+  align-items: center;
 }
 
 form {
@@ -42,10 +49,8 @@ form {
 }
 
 .controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 70%;
+  text-align: center;
 }
 
 .controls select {
@@ -58,6 +63,7 @@ form {
 
 .controls label {
   margin-bottom: 10px;
+  display: block;
 }
 
 .controls input {
@@ -67,7 +73,7 @@ form {
 
 .text-to-voice {
   background: rgba(255, 255, 255, 0.7);
-  min-width: 400px;
+  width: 400px;
   height: 500px;
   border-radius: 10px;
   display: flex;
@@ -80,7 +86,6 @@ form {
 .text-to-voice textarea {
   width: 80%;
   height: 150px;
-  margin-bottom: 10px;
   border-radius: 10px;
   resize: none;
   border: none;
@@ -111,4 +116,42 @@ footer .btn {
 
 footer .btn:first-child {
   margin-right: 20px;
+}
+
+@media screen and (max-height: 550px) {
+  .text-to-voice {
+    height: 350px;
+  }
+
+  header,
+  footer {
+    height: 75px;
+    align-items: center;
+  }
+
+  footer .btn {
+    width: 120px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .text-to-voice textarea {
+    width: 70%;
+    height: 90px;
+    font-size: 12px;
+  }
+
+  .controls label:first-of-type {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .controls label {
+    display: inline-block;
+  }
+
+  .controls input {
+    width: 80px;
+    margin-left: 5px;
+  }
 }
