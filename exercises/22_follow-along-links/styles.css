@@ -7,11 +7,11 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
   background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
 
@@ -32,21 +32,18 @@ a {
   opacity: 0;
 }
 
-.menu { margin-bottom: 50px; }
-
 .menu a {
   font-family: 'Kavivanar', cursive;
   font-size: 18px;
   padding: 5px 10px;
-  margin-right: 20px;
+  margin: 0 10px;
   color: #fff;
 }
 
-.menu a:last-child { margin-right: 0; }
+.menu a:hover { color: #000; }
 
 .article {
-  min-width: 575px;;
-  width: 40vw;
+  width: 575px;
   padding: 50px;
   text-align: justify;
   border-radius: 10px;
@@ -60,4 +57,19 @@ a {
 .article a {
   color: #4243FF;
   padding: 2px;
+}
+
+@media screen and (max-width: 600px) {
+  .article {
+    width: 80vw;
+    height: 65vw;
+    padding: 33px 50px;
+    overflow: hidden;
+  }
+
+  .article p:nth-child(5n+3),
+  .article p:nth-child(5n+4),
+  .article p:nth-child(5n+5) {
+    display: none;
+  }
 }
