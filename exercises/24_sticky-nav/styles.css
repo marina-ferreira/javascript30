@@ -62,14 +62,30 @@ header .menu a:last-child {
   border-radius: 5px;
   padding: 60px;
   margin: 70px 0;
-
+  text-align: justify;
 }
 
 .article p {
   margin-bottom: 20px;
 }
 
-@media (max-width: 900px) { header { background-position: 0 -120px; } }
-@media (min-width: 901px) { header { background-position: 0 -210px; } }
-@media (min-width: 1100px) { header { background-position: 0 -300px; } }
-@media (min-width: 1400px) { header { background-position: 0 -390px; } }
+@media (max-width: 650px) {
+  header {
+    height: 270px;
+    background-position: 0 -100px;
+  }
+
+  .article {
+    width: 90vw;
+    padding: 50px;
+    margin: 30px 0;
+  }
+}
+
+@media (min-width: 651px) and (max-width: 900px) {
+  header { background-position: 0 -80px; }
+  .article { width: 80vw; }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) { header { background-position: 0 -190px; } }
+@media (min-width: 1101px) { header { background-position: 0 -310px; } }
