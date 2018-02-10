@@ -6,4 +6,4 @@ navigator.geolocation.watchPosition(position => {
 
   document.documentElement.style.setProperty('--heading', `${heading}deg`);
   speedTag.textContent = speed;
-}, (err) => console.err(err));
+}, (err) => console.error(err));
