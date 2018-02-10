@@ -48,3 +48,7 @@ body {
   50%  { background: rgba(139,0,0,.8); }
   100% { background: rgba(0,0,0,.4); }
 }
+
+@media screen and (max-width: 750px) {
+  .speech-output { width: 60vw; }
+}
