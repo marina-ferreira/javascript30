@@ -79,6 +79,7 @@ body {
 
 .game {
   width: 750px;
+  width: 70vw;
   height: 70vh;
   margin: 0 auto;
   display: flex;
@@ -86,12 +87,10 @@ body {
 }
 
 .hole {
-  flex: 1;
-  min-width: 200px;
+  width: 33%;
   height: 250px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   overflow: hidden;
 }
 
@@ -100,19 +99,8 @@ body {
 }
 
 .grass {
-  display: flex;
-}
-
-.grass img {
-  width: 120px;
-}
-
-.grass img:first-of-type {
-  transform: translate(90px, 5px);
-}
-
-.grass img:last-of-type {
-  transform: translate(-100px, 5px);
+  display: inline-table;
+  margin: auto;
 }
 
 .mole {
@@ -125,4 +113,48 @@ body {
 .mole.out {
   transform: translateY(0);
   opacity: 1;
+}
+
+@media screen and (max-width: 1050px) {
+  .game {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .main-header {
+    height: 100px;
+  }
+
+  .title {
+    width: 85px;
+    font-size: 24px;
+  }
+
+  .controls .score,
+  .controls .timer {
+    font-size: 20px;
+    margin: 0;
+    flex-basis: auto;
+  }
+
+  .controls button[name='start'] {
+    width: 70px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .game {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  .hole {
+    min-width: 140px;
+    height: 45%;
+  }
+
+  .grass {
+    display: inline-table;
+  }
 }
