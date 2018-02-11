@@ -124,6 +124,7 @@ body {
 .one {
   width: 100%;
   height: 100%;
+  cursor: pointer;
   background: #8203DF;
 }
 
@@ -156,7 +157,7 @@ body {
     width: 160px;
     padding: 25px;
     top: 20px;
-    left: -20px;
+    left: -25px;
     font-size: 11px;
     background: transparent;
     border: none;
