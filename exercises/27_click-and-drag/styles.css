@@ -32,14 +32,14 @@ body {
   perspective: 500px;
   position: relative;
   display: inline-flex;
+  align-items: center;
   overflow-x: scroll;
 }
 
 .panel {
   min-width: 160px;
-  width: 160px;
+  height: 80%;
   background: rgba(255, 255, 255, 0.5);
-  margin: 40px 0;
   font-family: 'Erica One', cursive;
   font-size: 100px;
   display: inline-flex;
@@ -53,3 +53,11 @@ body {
 
 .panel:nth-child(even) { transform: rotateY(10deg); }
 .panel:nth-child(odd)  { transform: rotateY(-10deg); }
+
+@media screen and (max-width:750px) {
+  .panel {
+    min-width: 90px;
+    height: 70%;
+    font-size: 50px;
+  }
+}

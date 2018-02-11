@@ -6,7 +6,6 @@ function handleMouseDown(e) {
   isMouseDown = true;
   startX = e.pageX - slider.offsetLeft;
   scrollLeft = slider.scrollLeft;
-
 }
 
 function handleScroll(e) {
