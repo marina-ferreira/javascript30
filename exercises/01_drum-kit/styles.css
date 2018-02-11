@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: url('./bg.jpg');
+  background-size: cover;
+  background-position-y: bottom;
+  display: flex;
+}
+
+.keys {
+  width: 70vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 70px;
+  min-height: 70px;
+  background: rgba(0, 0, 0, .6);
+  margin: 5px 7.5px;
+  color: #fff;
+  font-size: 27px;
+  border: 3px solid #000;
+  transition: background .07s ease-in-out;
+}
+
+.key.active {
+  background: rgba(255, 0, 0, .5);
+  transition: background .07s ease-in-out;
+}
+
+.key .name {
+  font-size: 14px;
+  color: #ff0;
+}

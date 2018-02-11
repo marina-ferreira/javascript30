@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to right, #5c258d, #4389a2);
+}
+
+.article {
+  width: 720px;
+  margin: 20px 0;
+  background: #FFF;
+  padding: 50px 100px;
+  text-align: justify;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #c5c5c5;
+  margin: 5px 0 70px;
+  display: block;
+}
+
+.subsection {
+  margin-bottom: 40px;
+}
+
+.paragraph:first-of-type {
+  text-indent: 40px;
+}
+
+.subsection .image {
+  float: right;
+  margin: 15px 0 10px 20px;
+  left: 50%;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.74, 0.95);
+}
+
+.subsection:nth-of-type(even) .image {
+  float: left;
+  margin: 15px 20px 10px 0;
+  left: -50%;
+}
+
+.subsection .image.visible {
+  visibility: visible;
+  opacity: 1;
+  left: 0;
+  transform: scale(1);
+}
+
+@media screen and (max-width: 750px) {
+  .article {
+    width: 90vw;
+    padding: 50px 35px;
+  }
+
+  .title { font-size: 25px; }
+  .subtitle { font-size: 14px; }
+  .paragraph { font-size: 14px; }
+}
+
+@media screen and (max-width: 500px) {
+  .paragraph { font-size: 13px; }
+}

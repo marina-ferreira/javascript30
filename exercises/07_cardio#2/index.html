@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio #2 💪</title>
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <h1 class="title">Array Cardio #2</h1>
+  <p class="reminder">Psst: have a look at the JavaScript Console 🌹</p>
+
+  <ul class="panel">
+    <li class="item">
+      <span class="method">some()</span>
+      <p class="description">Tests whether at least one element in the array passes the test implemented by the provided function.</p>
+
+      <div class="code" contenteditable>
+    const people = [
+      { name: 'Wes', year: 1988 },
+      { name: 'Kait', year: 1986 },
+      { name: 'Irv', year: 1970 },
+      { name: 'Lux', year: 2015 }
+    ];
+
+    // Array.prototype.some() // is at least one person 19 or older?
+    let anyOlderThan19 = people.some(person => {
+      let age = new Date().getFullYear() - person.year;
+      return age > 18;
+    });
+
+    console.log(anyOlderThan19);
+    >> true
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">every()</span>
+      <p class="description">Tests whether all elements in the array pass the test implemented by the provided function.</p>
+
+      <div class="code" contenteditable>
+    // Array.prototype.every() // is everyone 19 or older?
+    let allOlderThan19 = people.every(person => {
+      let age = new Date().getFullYear() - person.year;
+      return age > 18;
+    });
+
+    console.log(allOlderThan19);
+    >> false
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">find()</span>
+      <p class="description">Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.</p>
+
+      <div class="code" contenteditable>
+    const comments = [
+      { text: 'Love this!', id: 523423 },
+      { text: 'Super good', id: 823423 },
+      { text: 'You are the best', id: 2039842 },
+      { text: 'Ramen is my fav food ever', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    / find the comment with the ID of 823423
+    let comment = comments.find(comment => comment.id === 823423);
+    console.log(comment);
+    >> { id: 823423, text: "Super good" }
+      </div>
+    </li>
+    <li class="item">
+      <span class="method">findIndex()</span>
+      <p class="description">Returns the index of the first element in the array that satisfies the provided testing function. Otherwise -1 is returned.</p>
+
+      <div class="code" contenteditable>
+    // Find the comment with this ID
+    // delete the comment with the ID of 823423
+
+    let commentIndex = comments.findIndex(comment => comment.id === 823423);
+    comments.splice(commentIndex, 1);
+
+    console.log(comments);
+    [
+      { text: "Love this!", id: 523423 },
+      { text: "You are the best", id: 2039842 },
+      { text: "Ramen is my fav food ever", id: 123523 },
+      { text: "Nice Nice Nice!", id: 542328}
+    ]
+      </div>
+    </li>
+  </ul>
+
+  <script src="./scripts.js"></script>
+</body>
+</html>

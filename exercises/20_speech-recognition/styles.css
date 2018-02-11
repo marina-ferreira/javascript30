@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.mic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.4);
+  padding: 15px;
+}
+
+.mic.recording {
+  animation-name: bg-blink;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.speech-output {
+  width: 40vw;
+  min-height: 40vh;
+  max-height: 500px;
+  overflow-y: scroll;
+  background: #fff;
+  opacity: .3;
+  border-radius: 5px;
+  box-shadow: 0 0 0 8px #fff, 1px 1px 1px #000;
+  border: 2px dashed #AD1457;
+  padding: 30px;
+}
+
+.speech-output p { margin-bottom: 20px; }
+.speech-output p:last-child { margin-bottom: 0; }
+
+@keyframes bg-blink {
+  0%   { background: rgba(0,0,0,.4); }
+  50%  { background: rgba(139,0,0,.8); }
+  100% { background: rgba(0,0,0,.4); }
+}
+
+@media screen and (max-width: 750px) {
+  .speech-output { width: 60vw; }
+}

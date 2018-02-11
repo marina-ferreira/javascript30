@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|BioRhyme+Expanded:800');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2850&q=80') no-repeat;
+  background-size: 1500px;
+  background-position-x: center;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  color: #55D1B8;
+  font-family: 'BioRhyme Expanded', serif;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.band-list {
+  width: 420px;
+  height:  90vh;
+  padding: 25px 60px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  opacity: .7;
+  overflow-y: scroll;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.band-list .band {
+  list-style: none;
+  padding: 10px 0;
+  border-top: 3px double #e5e5e5;
+  margin-bottom: 1px;
+}
+
+.band-list .band:last-of-type {
+  border-bottom: 3px double #e5e5e5;
+}
+
+.band-list .band:before {
+  content: '●';
+  color: #d18639;
+  margin-right: 20px;
+}
+
+@media screen and (max-height: 550px) {
+  .band-list { height: 80vh; }
+}

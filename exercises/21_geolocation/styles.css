@@ -1,0 +1,52 @@
+:root {
+  --heading: 0deg;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+.circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 20px solid #fff;
+}
+
+.circle,
+.rose,
+.points {
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--heading));
+  transition: all 2s;
+  position: absolute;
+}
+
+.speed {
+  color: #fff;
+  font-size: 50px;
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+@media screen and (max-width: 550px) and (max-height: 600px) {
+  .circle {
+    width: 220px;
+    height: 220px;
+    border-width: 15px;
+  }
+
+  .rose,
+  .points { width: 170px; }
+  .speed { font-size: 40px; }
+}

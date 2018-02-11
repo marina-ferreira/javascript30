@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background: #00bcd4;
+}
+
+.title {
+  color: #DB167C;
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.list {
+  width: 390px;
+  height: 70vh;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.list .item {
+  list-style: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.list .item .checkbox {
+  flex: 1.5;
+}
+
+.list .item .checkbox:checked + .item-description {
+  text-decoration: line-through;
+}
+
+.list .item .item-description {
+  flex: 6;
+  font-size: 20px;
+}
+
+@media screen and (max-height: 500px) {
+  .title { font-size: 28px; }
+  .list { height: 70vh; }
+  .list .item:nth-child(7n+5),
+  .list .item:nth-child(7n+6),
+  .list .item:nth-child(7n+7) { display: none; }
+  .list .item .item-description { font-size: 18px; }
+}

@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #4b79a1, #283e51);
+  height: 100vh;
+  display: flex;
+}
+
+.clock {
+  width: 27vw;
+  height: 27vw;
+  min-width: 330px;
+  min-height: 330px;
+  margin: auto;
+  border-radius: 50%;
+  border: 15px solid #4a0072;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hand {
+  position: absolute;
+  align-self: center;
+  border-radius: 50%;
+  background: #000;
+}
+
+.hours {
+  width: 5px;
+  height: 25%;
+}
+
+.minutes {
+  width: 3px;
+  height: 35%;
+}
+
+.seconds {
+  width: 2px;
+  height: 45%;
+}
