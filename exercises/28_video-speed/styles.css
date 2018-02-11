@@ -15,6 +15,7 @@ body {
 }
 
 video {
+  height: 100%;
   object-fit: fill;
 }
 
@@ -32,9 +33,19 @@ video {
   width: 100%;
   color: #c5c5c5;
   text-align: center;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1),
-               -1px 1px 1px rgba(0, 0, 0, 0.1);
   user-select: none;
   padding-top: 25px;
   background: linear-gradient(to right, #33001b, #ff0084);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1),
+               -1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 780px) {
+  video { width: 75vw; }
+
+  .speed {
+    width: 20px;
+    height: 170px;
+    font-size: 12px;
+  }
 }
