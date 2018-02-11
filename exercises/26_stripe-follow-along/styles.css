@@ -92,6 +92,10 @@ body {
   max-width: 360px;
 }
 
+.dropdown ul {
+  max-width: 300px;
+}
+
 .dropdown li {
   margin-bottom: 20px;
 }
@@ -124,4 +128,47 @@ li .icon {
 
 .trigger-enter-active .dropdown {
   opacity: 1;
+}
+
+@media screen and (max-width: 650px) {
+  .main-menu {
+    width: 90vw;
+    height: 50px;
+    margin-top: 70px;
+  }
+
+  .menu-list ul {
+    max-width: 140px;
+  }
+
+  .menu-list li,
+  .menu-list p {
+    font-size: 10px;
+  }
+
+  .menu-list > li {
+    font-size: 12px;
+  }
+
+  .dropdown {
+    padding: 20px;
+    transform: translateY(105px);
+  }
+
+  .dropdown li {
+    margin-bottom: 5px;
+  }
+
+  .about img {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+  .about p {
+    width: 200px;
+  }
+
+  .dropdownBackground {
+    transform: translateY(70px);
+  }
 }
