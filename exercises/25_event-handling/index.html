@@ -24,14 +24,14 @@
       </div>
 
       <div class="code" contenteditable>
-        let divs = document.querySelectorAll('.example div');
+    let divs = document.querySelectorAll('.example div');
 
-        function logText(e) {
-          console.log(this.classList.value);
-        }
+    function logText(e) {
+      console.log(this.classList.value);
+    }
 
-        divs.forEach(div => div.addEventListener('click', logText));
-        document.querySelector('body').addEventListener('click', logText);
+    divs.forEach(div => div.addEventListener('click', logText));
+    document.querySelector('body').addEventListener('click', logText);
       </div>
 
       <p class="description">On clicking the deepest nested div, <em>three</em>, it would be expected to see its class being logged to the console. And it is, indeed. But also, <em>one</em> and <em>two</em>are output. That is due to <em>event bubbling.</em> When we click on <em>three</em> div, we are actually also clicking on <em>two</em>, and on <em>one</em>, and on <em>example</em>, [...] and on <em>body</em>, and on <em>document</em>, and on window and so on.</p>
@@ -46,7 +46,7 @@
       <p class="description">The event will be dispatched by the current listener, before being dispatched to any elements beneath it in the DOM.</p>
 
       <div class="code" contenteditable>
-        divs.forEach(div => div.addEventListener('click', logText, { capture: true }));
+    divs.forEach(div => div.addEventListener('click', logText, { capture: true }));
       </div>
 
       <p class="description">By appending an object with the option <em>capture: true</em>, instead of firing the events from bottom to top, the browser will dispatch each event in the capture step. It captures the first event and fires it, then it goes to the next one, captures and fires it, and so on. The output in the console can be observed in the gif below:</p>
@@ -59,10 +59,10 @@
       <p class="description">Prevents further propagation of the current event in the capturing and bubbling phases.</p>
 
       <div class="code" contenteditable>
-        function logText(e) {
-          console.log(this.classList.value);
-          e.stopPropagation();
-        }
+    function logText(e) {
+      console.log(this.classList.value);
+      e.stopPropagation();
+    }
       </div>
 
       <p class="description">So, when we click the <em>three</em> div, the first time the function executes, the <em>stopPropagation()</em> call will prevent the other event triggering. In other words, it stops bubbling.</p>
@@ -75,7 +75,7 @@
       <p class="description">Invokes the listener only one time, deataching it from the element once fired.</p>
 
       <div class="code" contenteditable>
-        divs.forEach(div => div.addEventListener('click', logText, { once: true }));
+    divs.forEach(div => div.addEventListener('click', logText, { once: true }));
       </div>
 
       <p class="description">Using the option <em>once</em> or calling <em>removeEventListener()</em>, actually produce the same effect.</p>
