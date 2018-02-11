@@ -99,13 +99,14 @@ body {
 }
 
 .grass {
-  display: inline-table;
   margin: auto;
+  z-index: 10;
 }
 
 .mole {
   width: 150px;
   opacity: 0;
+  margin: auto;
   transform: translateY(140px);
   transition: all .3s ease-in-out;
 }
@@ -150,11 +151,24 @@ body {
   }
 
   .hole {
-    min-width: 140px;
     height: 45%;
+    position: relative;
+    align-items: center;
   }
 
   .grass {
-    display: inline-table;
+    width: 80%;
+    bottom: -10px;
+    position: absolute;
+  }
+
+  .grass img {
+    width: 100%;
+  }
+
+  .mole {
+    width: 80px;
+    position: relative;
+    top: -35px;
   }
 }
