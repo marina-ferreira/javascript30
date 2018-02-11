@@ -55,6 +55,10 @@ body {
   margin-right: 30px;
 }
 
+.control-set {
+  display: flex;
+}
+
 .controls button[name='start'] {
   width: 100px;
   height: 70px;
@@ -116,27 +120,42 @@ body {
   opacity: 1;
 }
 
-@media screen and (max-width: 1050px) {
-  .game {
-    width: 90vw;
-  }
-}
+@media screen and (max-width: 1050px) { .game { width: 90vw; } }
 
 @media screen and (max-width: 780px) {
   .main-header {
-    height: 100px;
+    height: auto;
+    justify-content: center;
   }
 
   .title {
     width: 85px;
     font-size: 24px;
+    line-height: 1.5;
+    position: relative;
+    top: 30px;
+    margin-right: 50px;
+  }
+
+  .controls {
+    width: 150px;
+    height: auto;
+    flex-direction: column-reverse;
+  }
+
+  .control-set {
+    align-items: center;
   }
 
   .controls .score,
   .controls .timer {
     font-size: 20px;
     margin: 0;
-    flex-basis: auto;
+  }
+
+  .controls .score {
+    position: relative;
+    top: 10px;
   }
 
   .controls button[name='start'] {
