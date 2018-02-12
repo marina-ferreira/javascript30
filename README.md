@@ -1,9 +1,10 @@
 # JavaScript 30
 
-30 Day Vanilla JS Coding Challenge
+Solutions to the [30 Day Vanilla JS Coding Challenge](https://javascript30.com/)
 
-Build 30 things in 30 days with 30 tutorials
+30 exercises build without the use of frameworks, compilers, libraries or boilerplate.
 
-No Frameworks×No Compilers×No Libraries×No Boilerplate
+Visit project at:
+https://inblackandwhite.github.io/javascript30
 
-[javascript30.com](https://javascript30.com/)
+![](./img/portfolio.gif)
