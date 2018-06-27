@@ -1,18 +1,14 @@
-window.onload = () => {
-  let searchInput = document.querySelector('.search-input');
-  searchInput.addEventListener('keyup', search);
-
-  getData();
-}
+let searchInput = document.querySelector('.search-input');
+searchInput.addEventListener('keyup', search);
 
 const states = [];
 
-function getData() {
+(function getData() {
   const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
   fetch(endpoint).then(response => response.json())
                  .then(data => states.push(...data));
-}
+})();
 
 function search() {
   let regex = new RegExp(this.value, 'gi');
@@ -27,8 +23,8 @@ function displayMatches(wordToMatch, matches) {
   if (wordToMatch == '') { return list.innerHTML = ''; }
 
   let listItems = matches.map(stateData => {
-    let cityName = stateData.city.replace(regex, `<span class="highlight">${wordToMatch}</span>`),
-        stateName = stateData.state.replace(regex, `<span class="highlight">${wordToMatch}</span>`),
+    let cityName = stateData.city.replace(regex, `<span class="search-highlight">${wordToMatch}</span>`),
+        stateName = stateData.state.replace(regex, `<span class="search-highlight">${wordToMatch}</span>`),
         population = Number(stateData.population).toLocaleString();
 
     return `

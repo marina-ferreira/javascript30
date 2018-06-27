@@ -5,10 +5,10 @@
 }
 
 body {
-  background: #5D8CD3;
   display: flex;
   align-items: center;
   flex-direction: column;
+  background: #5D8CD3;
 }
 
 .search {
@@ -18,7 +18,7 @@ body {
   width: 80vw;
 }
 
-.form .search-input {
+.search-form .search-input {
   width: 400px;
   height: 100px;
   border-radius: 10px;
@@ -43,7 +43,7 @@ ul.search-result li {
   padding: 20px;
   margin: 10px;
   border: 1px solid #e5e5e5;
-  text-transform: capitalize;
+  text-transsearch-form: capitalize;
 }
 
 ul.search-result li:nth-child(odd) {
@@ -57,7 +57,7 @@ ul.search-result li:nth-child(even) {
   transform: perspective(20px) rotateX(1deg);
 }
 
-ul.search-result li .highlight {
+ul.search-result li .search-highlight {
   color: #fff;
   background: #5D8CD3;
 }

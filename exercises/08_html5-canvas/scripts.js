@@ -7,7 +7,7 @@ let isMouseUp = true,
     x, y;
 
 if (window.innerWidth) {
-  canvas.width = window.innerWidth * .9;
+  canvas.width = window.innerWidth * .8;
   canvas.height = window.innerHeight * .9;
 }
 

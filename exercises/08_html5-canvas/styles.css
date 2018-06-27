@@ -10,7 +10,9 @@ body {
   background: linear-gradient(to right, #233c23, #0f9b0f);
 }
 
-canvas {
+#canvas {
+  width: 80%;
+  height: 90%;
   margin: auto;
   border-radius: 20px;
   background: #fff;
