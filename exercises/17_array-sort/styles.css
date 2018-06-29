@@ -7,14 +7,14 @@
 }
 
 body {
-  background: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2850&q=80') no-repeat;
-  background-size: 1500px;
-  background-position-x: center;
   height: 100vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  background: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2850&q=80') no-repeat;
+  background-size: 1500px;
+  background-position-x: center;
 }
 
 .title {
@@ -25,7 +25,7 @@ body {
 
 .band-list {
   width: 420px;
-  height:  90vh;
+  height:  80%;
   padding: 25px 60px;
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;

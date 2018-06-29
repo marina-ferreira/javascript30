@@ -1,4 +1,4 @@
-const  checkboxes = document.querySelectorAll('input.checkbox');
+const  checkboxes = document.querySelectorAll('input.multiple-check-checkbox');
 
 let inBetween = false,
     lastChecked;

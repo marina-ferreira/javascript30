@@ -21,9 +21,9 @@ body {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.list {
+.multiple-check-list {
   width: 390px;
-  height: 70vh;
+  height: 70%;
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
@@ -31,31 +31,31 @@ body {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.list .item {
+.multiple-check-item {
   list-style: none;
   flex: 1;
   display: flex;
   align-items: center;
 }
 
-.list .item .checkbox {
+.multiple-check-item .multiple-check-checkbox {
   flex: 1.5;
 }
 
-.list .item .checkbox:checked + .item-description {
+.multiple-check-item .multiple-check-checkbox:checked + .multiple-check-text {
   text-decoration: line-through;
 }
 
-.list .item .item-description {
+.multiple-check-item .multiple-check-text {
   flex: 6;
   font-size: 20px;
 }
 
 @media screen and (max-height: 500px) {
   .title { font-size: 28px; }
-  .list { height: 70vh; }
-  .list .item:nth-child(7n+5),
-  .list .item:nth-child(7n+6),
-  .list .item:nth-child(7n+7) { display: none; }
-  .list .item .item-description { font-size: 18px; }
+  .multiple-check-list { height: 70vh; }
+  .multiple-check-item:nth-child(7n+5),
+  .multiple-check-item:nth-child(7n+6),
+  .multiple-check-item:nth-child(7n+7) { display: none; }
+  .multiple-check-item .multiple-check-text { font-size: 18px; }
 }
