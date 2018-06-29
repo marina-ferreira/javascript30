@@ -1,5 +1,5 @@
-let header = document.querySelector('header'),
-    menu = document.querySelector('.menu');
+let header = document.querySelector('.sticky-nav-header'),
+    menu = document.querySelector('.sticky-nav-menu');
 
 window.addEventListener('scroll', debounce(handleNav));
 
@@ -27,5 +27,5 @@ function debounce(laFonction, wait = 15, immediate = true) {
     timeout = setTimeout(later, wait);
 
     callNow && laFonction.apply(context, args);
-  };
-};
+  }
+}

@@ -13,34 +13,34 @@ body {
   background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 }
 
-header {
-  height: 450px;
+.sticky-nav-header {
   width: 100vw;
+  height: 450px;
   background: url('./img/bg.jpg');
   background-size: cover;
   display: flex;
   align-items: flex-end;
 }
 
-header .menu {
-  background: #387963;
-  top: auto;
-  position: relative;
+.sticky-nav-menu {
   width: 100vw;
   height: 80px;
+  top: auto;
   padding: 20px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 3px 5px rgba(0,0,0,.1)
+  background: #387963;
 }
 
-header .menu.fixed {
+.sticky-nav-menu.fixed {
   top: 0;
   position: fixed;
 }
 
-header .menu a {
+.sticky-nav-menu a {
   width: 90px;
   text-align: center;
   text-decoration: none;
@@ -52,11 +52,11 @@ header .menu a {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
-header .menu a:last-child {
+.sticky-nav-menu a:last-child {
   margin-right: 0;
 }
 
-.article {
+.sticky-nav-article {
   width: 750px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
@@ -65,17 +65,17 @@ header .menu a:last-child {
   text-align: justify;
 }
 
-.article p {
+.sticky-nav-article p {
   margin-bottom: 20px;
 }
 
 @media (max-width: 650px) {
-  header {
+  .sticky-nav-header {
     height: 270px;
     background-position: 0 -100px;
   }
 
-  .article {
+  .sticky-nav-article {
     width: 90vw;
     padding: 50px;
     margin: 30px 0;
@@ -83,9 +83,9 @@ header .menu a:last-child {
 }
 
 @media (min-width: 651px) and (max-width: 900px) {
-  header { background-position: 0 -80px; }
-  .article { width: 80vw; }
+  .sticky-nav-header { background-position: 0 -80px; }
+  .sticky-nav-article { width: 80vw; }
 }
 
-@media (min-width: 901px) and (max-width: 1100px) { header { background-position: 0 -190px; } }
-@media (min-width: 1101px) { header { background-position: 0 -310px; } }
+@media (min-width: 901px) and (max-width: 1100px) { .sticky-nav-header { background-position: 0 -190px; } }
+@media (min-width: 1101px) { .sticky-nav-header { background-position: 0 -310px; } }
