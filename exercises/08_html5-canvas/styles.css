@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   display: flex;
-  background: linear-gradient(to right, #233c23, #0f9b0f);
+  background: linear-gradient(to right, #00b09b, #96c93d);
 }
 
 #canvas {
@@ -16,5 +16,5 @@ body {
   margin: auto;
   border-radius: 20px;
   background: #fff;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
 }

@@ -39,7 +39,7 @@ body {
 }
 
 .multiple-check-item .multiple-check-checkbox {
-  flex: 1.5;
+  flex: 1.2;
 }
 
 .multiple-check-item .multiple-check-checkbox:checked + .multiple-check-text {

@@ -35,17 +35,14 @@ body {
 
 #gif.show {
   display: block;
-  animation: bounceDownIn 0.35s ease-in-out both;
 }
 
-@keyframes bounceDownIn {
-  0%    { opacity: 0; transform: translateY(-2000px); }
-  60%   { opacity: 1; transform: translateY(30px); }
-  80%   { transform: translateY(-10px); }
-  100%  { transform: translateY(0); }
+@media screen and (max-width: 750px) {
+  .title { font-size: 30px; }
+  #gif { height: 40%; }
 }
 
 @media screen and (max-width: 500px) {
   .title { font-size: 30px; }
-  #gif { height: 50vh; }
+  #gif { height: 50%; }
 }
