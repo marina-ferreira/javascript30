@@ -9,7 +9,7 @@
 body {
   height: 100vh;
   background: linear-gradient(160deg, rgb(143, 22, 237), rgb(27, 141, 15));
-  background:linear-gradient(57deg,#e36f53,#fa5ae0);
+  background: linear-gradient(57deg, #e36f53, #fa5ae0);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
