@@ -7,7 +7,7 @@
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(160deg, rgb(143, 22, 237), rgb(27, 141, 15));
   background:linear-gradient(57deg,#e36f53,#fa5ae0);
   display: flex;
@@ -120,21 +120,24 @@ body {
   opacity: 1;
 }
 
-@media screen and (max-width: 1050px) { .game { width: 90vw; } }
+@media screen and (max-width: 1050px) { .game { width: 90%; } }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 750px) {
   .main-header {
     height: auto;
-    justify-content: center;
+    justify-content: space-around;
   }
 
   .title {
-    width: 85px;
-    font-size: 24px;
-    line-height: 1.5;
-    position: relative;
-    top: 30px;
+    width: 130px;
+    top: 15px;
     margin-right: 50px;
+    position: relative;
+    font-size: 36px;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #f7e376;
+    line-height: 1.5;
+    transform: rotate(-25deg);
   }
 
   .controls {
@@ -165,8 +168,8 @@ body {
   }
 
   .game {
-    width: 90vw;
-    height: 70vh;
+    width: 70%;
+    height: 70%;
   }
 
   .hole {
@@ -176,7 +179,7 @@ body {
   }
 
   .grass {
-    width: 80%;
+    width: 75%;
     bottom: -10px;
     position: absolute;
   }
@@ -189,5 +192,17 @@ body {
     width: 80px;
     position: relative;
     top: -35px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .title {
+    width: 85px;
+    font-size: 24px;
+    top: 30px;
+  }
+
+  .grass {
+    width: 80%;
   }
 }

@@ -130,11 +130,11 @@ li .icon {
   opacity: 1;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
   .main-menu {
     width: 90vw;
     height: 50px;
-    margin-top: 70px;
+    margin-top: 40px;
   }
 
   .menu-list ul {
@@ -169,6 +169,6 @@ li .icon {
   }
 
   .dropdownBackground {
-    transform: translateY(70px);
+    transform: translateY(40px);
   }
 }
