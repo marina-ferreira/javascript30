@@ -7,30 +7,30 @@
 }
 
 body {
-  background: url('./img/bg.jpg') no-repeat;
-  background-size: 1500px;
-  background-position-x: center;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: url('./img/bg.jpg') no-repeat;
+  background-size: cover;
+  background-position-x: center;
 }
 
 .logo {
+  margin-bottom: 50px;
   font-family: 'Permanent Marker', cursive;
   color: #FFF;
   letter-spacing: 3px;
   text-shadow: 2px 2px 2px #000;
-  margin-bottom: 50px;
 }
 
 .menu {
-  background: rgba(255, 255, 255, .9);
   padding: 20px 40px 40px;
   min-width: 300px;
   border-radius: 5px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+  background: rgba(255, 255, 255, .9);
 }
 
 .menu .icon {
@@ -89,14 +89,14 @@ body {
   width: 78px;
 }
 
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 750px) {
   .logo {
     font-size: 28px;
     margin-bottom: 5px;
   }
 
   .menu {
-    max-height: 85vh;
+    max-height: 85%;
   }
 
   .menu-list {
