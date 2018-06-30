@@ -96,7 +96,7 @@ canvas {
 .screenshots a:nth-child(5n+4) img { transform: rotate(-11deg); }
 .screenshots a:nth-child(5n+5) img { transform: rotate(12deg); }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) {
   body {
     justify-content: space-around;
     flex-direction: column;
@@ -108,10 +108,7 @@ canvas {
     height: 180px;
   }
 
-  .player {
-    align-self: flex-end;
-    left: -30px;
-  }
+  .player { left: 9%; }
 
   video {
     width: 120px;
@@ -174,4 +171,8 @@ canvas {
     width: 10%;
     padding: 4px 6px 16px;
   }
+}
+
+@media screen and (max-width: 550px) {
+  .player { left: 14%; }
 }

@@ -14,16 +14,17 @@ body {
 }
 
 .sticky-nav-header {
-  width: 100vw;
+  width: 100%;
   height: 450px;
-  background: url('https://source.unsplash.com/hFzIoD0F_i8');
-  background-size: cover;
   display: flex;
   align-items: flex-end;
+  background: url('https://source.unsplash.com/hFzIoD0F_i8') no-repeat;
+  background-size: cover;
+  background-position: 0 -400px;
 }
 
 .sticky-nav-menu {
-  width: 100vw;
+  width: 100%;
   height: 80px;
   top: auto;
   padding: 20px;
@@ -69,23 +70,24 @@ body {
   margin-bottom: 20px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
   .sticky-nav-header {
-    height: 270px;
-    background-position: 0 -100px;
+    height: 250px;
+    background-position: 0 -200px;
   }
 
+  .sticky-nav-menu { height: 60px; }
+  .sticky-nav-menu a { font-size: 16px; }
+
   .sticky-nav-article {
-    width: 90vw;
+    width: 90%;
     padding: 50px;
     margin: 30px 0;
   }
 }
 
-@media (min-width: 651px) and (max-width: 900px) {
-  .sticky-nav-header { background-position: 0 -80px; }
-  .sticky-nav-article { width: 80vw; }
+@media (max-width: 550px) {
+  .sticky-nav-header {
+    background-position: 0 -100px;
+  }
 }
-
-@media (min-width: 901px) and (max-width: 1100px) { .sticky-nav-header { background-position: 0 -190px; } }
-@media (min-width: 1101px) { .sticky-nav-header { background-position: 0 -310px; } }

@@ -118,7 +118,7 @@ footer .btn:first-child {
   margin-right: 20px;
 }
 
-@media screen and (max-height: 550px) {
+@media screen and (max-height: 750px) {
   .text-to-voice {
     height: 350px;
   }
