@@ -12,14 +12,19 @@
 body {
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  overflow: hidden;
   background: linear-gradient(to right, #155799, #159957);
 }
 
-.container {
+.css-variables {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.css-variables-container {
   width: 80vw;
   height: 55vh;
   display: flex;
@@ -29,17 +34,17 @@ body {
   position: relative;
 }
 
-.title {
+.css-variables-title {
   color: #fff;
   font-size: 48px;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
 }
 
-.title .hl {
+.css-variables-title .css-variables-hl {
   color: var(--color);
 }
 
-.controls {
+.css-variables-controls {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,56 +52,61 @@ body {
   margin-bottom: 20px;
 }
 
-.controls label {
+.css-variables-controls label {
   margin-right: 10px;
   color: #fff;
   font-size: 30px;
 }
 
-.controls input {
+.css-variables-controls input {
   margin-right: 30px;
 }
 
-.controls input:last-child {
+.css-variables-controls input:last-child {
   margin-right: 0;
 }
 
-.controls .ranges {
+.css-variables-controls .css-variables-ranges {
   margin-right: 30px;
 }
 
-img {
-  max-width: 45%;
+.css-variables-image {
+  max-width: 65%;
   min-width: 240px;
+  height: 340px;
   padding: var(--spacing);
   background: var(--color);
   filter: blur(var(--blur));
-  position: absolute;
-  bottom: 0;
 }
 
-@media (max-width: 600px) {
-  .container {
+@media (max-width: 750px) {
+  .css-variables-container {
     width: 100vw;
     height: 85vh;
   }
 
-  .title {
+  .css-variables-title {
     font-size: 24px;
     margin-bottom: 15px;
   }
 
-  .controls {
+  .css-variables-controls {
     width: 90%;
   }
 
-  .controls label {
+  .css-variables-controls label {
     text-align: center;
     font-size: 16px;
     display: block;
   }
 
-  .controls label:last-of-type {
+  .css-variables-controls label:last-of-type {
     margin-right: 0;
+  }
+
+  .css-variables-image {
+    max-width: 45%;
+    min-width: 240px;
+    height: auto;
   }
 }

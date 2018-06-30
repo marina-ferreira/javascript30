@@ -7,26 +7,27 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <h1 class="title">Update CSS variables with <span class="hl">JS</span></h1>
+  <section class="css-variables">
+    <h1 class="css-variables-title">Update CSS variables with <span class="css-variables-hl">JS</span></h1>
 
-  <div class="container">
-    <div class="controls">
-      <div class="ranges">
-        <label for="spacing">Spacing:</label>
-        <input type="range" id="spacing" value="20" min=0 max=35>
+      <div class="css-variables-controls">
+        <div class="css-variables-ranges">
+          <label for="spacing">Spacing:</label>
+          <input type="range" id="spacing" value="20" min=0 max=35>
 
-        <label for="blur">Blur:</label>
-        <input type="range" id="blur" value="0">
+          <label for="blur">Blur:</label>
+          <input type="range" id="blur" value="0">
+        </div>
+
+        <div class="css-variables-color">
+          <label for="color">Color:</label>
+          <input type="color" id="color" value="#FFC107">
+        </div>
       </div>
 
-      <div class="color">
-        <label for="color">Color:</label>
-        <input type="color" id="color" value="#FFC107">
-      </div>
-    </div>
-
-    <img src="https://source.unsplash.com/p7mo8-CG5Gs/400x300">
-  </div>
+      <img src="https://source.unsplash.com/p7mo8-CG5Gs/400x300"
+      class="css-variables-image">
+  </section>
 
   <script src="./scripts.js"></script>
 </body>
