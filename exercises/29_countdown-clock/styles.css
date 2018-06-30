@@ -13,15 +13,20 @@ body {
   background: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
 }
 
-.controls {
+.countdown-clock {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.countdown-clock-controls {
   width: 750px;
-  justify-self: flex-start;
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
 }
 
-.controls > * {
+.countdown-clock-controls > * {
   padding: 20px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
@@ -30,15 +35,15 @@ body {
   border: none;
 }
 
-.controls input {
+.countdown-clock-controls input {
   border: 2px solid transparent;
 }
 
-.controls button:hover  { background: rgba(255, 255, 255, 0.8); }
-.controls button:active { transform: scale(1.1); }
-.controls input:focus   { border: 2px solid #1e89e4; }
+.countdown-clock-controls button:hover  { background: rgba(255, 255, 255, 0.8); }
+.countdown-clock-controls button:active { transform: scale(1.1); }
+.countdown-clock-controls input:focus   { border: 2px solid #1e89e4; }
 
-.container {
+.countdown-clock-wrapper {
   margin: auto;
   text-align: center;
 }
@@ -52,14 +57,14 @@ body {
 }
 
 @media screen and (max-width: 780px) {
-  .controls {
+  .countdown-clock-controls {
     width: 100vw;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 10px;
   }
 
-  .controls input[type="text"] {
+  .countdown-clock-controls input[type="text"] {
     margin-top: 10px;
   }
   .clock {

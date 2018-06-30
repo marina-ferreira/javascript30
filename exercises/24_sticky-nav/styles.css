@@ -16,7 +16,7 @@ body {
 .sticky-nav-header {
   width: 100vw;
   height: 450px;
-  background: url('./img/bg.jpg');
+  background: url('https://source.unsplash.com/hFzIoD0F_i8');
   background-size: cover;
   display: flex;
   align-items: flex-end;
@@ -31,7 +31,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 3px 5px rgba(0,0,0,.1)
+  box-shadow: 0 3px 5px rgba(0,0,0,.1);
   background: #387963;
 }
 

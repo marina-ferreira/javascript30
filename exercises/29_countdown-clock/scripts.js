@@ -1,5 +1,5 @@
-const buttons = document.querySelectorAll('.controls button'),
-      enterTime = document.querySelector('.controls input'),
+const buttons = document.querySelectorAll('.countdown-clock-controls button'),
+      enterTime = document.querySelector('.countdown-clock-controls input'),
       clock = document.querySelector('.clock'),
       backAt = document.querySelector('.back-at');
 
