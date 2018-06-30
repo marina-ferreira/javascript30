@@ -59,17 +59,30 @@ a {
   padding: 2px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .article {
-    width: 80vw;
-    height: 65vw;
+    width: 80%;
+    height: 65%;
     padding: 33px 50px;
     overflow: hidden;
   }
 
-  .article p:nth-child(5n+3),
-  .article p:nth-child(5n+4),
-  .article p:nth-child(5n+5) {
+  .article p:nth-child(6n+4),
+  .article p:nth-child(6n+5),
+  .article p:nth-child(6n+6) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .article {
+    width: 80%;
+    height: 65%;
+    padding: 33px 50px;
+    overflow: hidden;
+  }
+
+  .article p:nth-child(6n+3) {
     display: none;
   }
 }
